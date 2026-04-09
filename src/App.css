@@ -119,6 +119,7 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  table-layout: auto;
 }
 
 .habit-table th,
@@ -131,12 +132,12 @@
 .col-habit,
 .cell-name {
   text-align: left;
-  width: 40%;
 }
 
 .col-day,
 .cell-day {
-  width: 7%;
+  width: 40px;
+  min-width: 40px;
 }
 
 .col-today,
@@ -177,8 +178,6 @@
   align-items: center;
   gap: 8px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .habit-dot {
