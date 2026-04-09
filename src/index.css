@@ -1,23 +1,18 @@
 :root {
-  --bg: #0d1117;
-  --bg-elev: #161b22;
-  --bg-elev-2: #21262d;
-  --border: #30363d;
-  --text: #e6edf3;
-  --text-muted: #7d8590;
-  --accent: #2f81f7;
-  --cell-empty: #161b22;
-  --cell-border: rgba(255, 255, 255, 0.04);
+  --bg: #111;
+  --bg-elev: #1a1a1a;
+  --bg-elev-2: #222;
+  --border: #2a2a2a;
+  --text: #eee;
+  --text-muted: #555;
+  --accent: #eee;
 
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
-    "Noto Sans", sans-serif;
-  font-size: 15px;
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", "Fira Code", monospace;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 * {
@@ -33,9 +28,7 @@ body,
 }
 
 body {
-  background:
-    radial-gradient(1200px 600px at 50% -10%, #1f2937 0%, transparent 60%),
-    var(--bg);
+  background: var(--bg);
 }
 
 button {
