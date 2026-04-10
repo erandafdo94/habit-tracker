@@ -1,0 +1,77 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atomic Habit Tracker — Build Better Habits</title>
+    <meta name="description" content="Practical guides on building habits that stick. No fluff, no motivation porn — just systems that work." />
+    <link rel="canonical" href="https://atomichabittracker.com" />
+    <meta property="og:title" content="Atomic Habit Tracker — Build Better Habits" />
+    <meta property="og:description" content="Practical guides on building habits that stick." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://atomichabittracker.com" />
+    <meta name="twitter:card" content="summary" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J228Q6322S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J228Q6322S');
+    </script>
+  </head>
+  <body>
+    <div class="site">
+      <header class="site-header">
+        <span class="site-logo">atomichabittracker</span>
+      </header>
+
+      <section class="hero">
+        <h1>Build habits that stick.</h1>
+        <p>Practical guides on habit systems, tracking, and behaviour change. No fluff.</p>
+      </section>
+
+      <hr />
+
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li class="post-item">
+            <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
+            <p>{post.data.description}</p>
+            <span class="post-date">{post.data.pubDate}</span>
+          </li>
+        ))}
+      </ul>
+
+      <footer class="site-footer">
+        <span>© {new Date().getFullYear()} atomichabittracker.com</span>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root { --bg: #111; --border: #222; --text: #e8e8e8; --muted: #666; --max: 680px; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: ui-monospace, "SF Mono", "Cascadia Mono", monospace; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { color: #fff; }
+  h1 { margin: 0 0 0.4em; line-height: 1.3; font-weight: 600; font-size: 22px; }
+  p { margin: 0 0 1em; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
+  .site { max-width: var(--max); margin: 0 auto; padding: 40px 24px 80px; }
+  .site-header { margin-bottom: 48px; }
+  .site-logo { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+  .hero p { color: var(--muted); font-size: 14px; margin: 0; }
+  .post-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 28px; }
+  .post-item a { font-size: 15px; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; }
+  .post-item a:hover { text-decoration: underline; }
+  .post-item p { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
+  .post-date { font-size: 11px; color: var(--muted); }
+  .site-footer { margin-top: 64px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 24px; }
+</style>
