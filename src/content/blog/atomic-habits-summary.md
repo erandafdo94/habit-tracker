@@ -1,67 +1,65 @@
 ---
-title: "Atomic Habits: The Key Ideas Worth Keeping"
-description: "A concise breakdown of the most actionable concepts from James Clear's Atomic Habits — without the padding."
+title: "Atomic Habits Summary: The 5 Ideas Worth Keeping"
+description: "A concise summary of James Clear's Atomic Habits — the five core ideas, stripped of the padding, with links to the parts that matter most."
 pubDate: "2025-03-10"
 slug: "atomic-habits-summary"
 ---
 
-James Clear's *Atomic Habits* is one of the most widely read books on behaviour change. A lot of it is padding — stories and repetition to fill 300 pages. Here are the ideas that are actually worth keeping.
+*Atomic Habits* is 300 pages. The useful ideas fit on an index card. Most of the book is stories and repetition to make those ideas sticky — which is fine, but if you've already decided to apply the system, you don't need the padding.
+
+Here are the five ideas actually worth keeping, in the order they matter.
 
 ## 1. The 1% rule
 
-Small improvements compound. A 1% improvement every day results in being 37 times better after a year. A 1% decline every day results in being close to zero.
+Small improvements compound. 1% better every day puts you 37× better after a year. 1% worse every day puts you near zero.
 
-The practical implication: stop optimising for big leaps. Optimise for small, consistent improvements. The results show up later than you expect, but they show up.
+The practical move: stop optimising for big leaps. Most people overestimate what they'll do in a month and underestimate what they'll do in a year. Show up small, show up often, and the curve bends later than you expect — but it bends.
 
 ## 2. Systems over goals
 
-Goals are outcomes. Systems are the processes that produce outcomes. Two people can have the same goal — run a marathon — but only the one with a consistent training system will get there.
+Goals are outcomes. Systems are the processes that produce them. Two runners can share the same goal — finish a marathon — and only the one with a consistent training system gets there.
 
-Clear's argument: you don't rise to the level of your goals, you fall to the level of your systems. Fix the system, not the goal.
+Clear's line: *"You don't rise to the level of your goals. You fall to the level of your systems."*
+
+Fix the system, not the goal. The goal is where you want to end up. The system is what you do tomorrow morning.
 
 ## 3. Identity-based habits
 
-Most people set outcome-based goals: "I want to lose 10kg." Clear argues for identity-based habits instead: "I am someone who exercises regularly."
+Most people set outcome-based goals: "I want to lose 10kg." Clear argues for the identity frame instead: "I am someone who exercises regularly."
 
-Every action you take is a vote for the type of person you want to become. Tracking a habit daily is casting a vote. Missing it is casting a vote in the other direction.
+Every action is a vote for who you're becoming. Tracking a habit daily is casting a vote. Missing it is casting a vote the other way.
 
-The shift from "I'm trying to run" to "I'm a runner" changes how you make decisions. A runner doesn't debate whether to go for a run — they just go.
+The shift from "I'm trying to run" to "I'm a runner" changes how you decide. A runner doesn't debate whether to go for a run — they just go. This is the most load-bearing single idea in the book, and most summaries bury it. [More on identity-based habits here.](/blog/identity-based-habits)
 
 ## 4. The four laws of behaviour change
 
-Clear organises habit formation around four factors:
+Clear organises habit formation around four factors. To build a habit, make each one work for you. To break one, invert them.
 
-| Law | Make it... |
-|-----|-----------|
-| Cue | Obvious |
-| Craving | Attractive |
-| Response | Easy |
-| Reward | Satisfying |
+| Law | Build | Break |
+|---|---|---|
+| Cue | Make it obvious | Make it invisible |
+| Craving | Make it attractive | Make it unattractive |
+| Response | Make it easy | Make it difficult |
+| Reward | Make it satisfying | Make it unsatisfying |
 
-To break a bad habit, invert each law: make it invisible, unattractive, difficult, and unsatisfying.
-
-### Make it obvious
-Put the cue in your environment. Want to read more? Put the book on your pillow. Want to drink more water? Put a glass on your desk.
-
-### Make it attractive
-Pair a habit you need to do with something you want to do. Only listen to your favourite podcast while exercising. Only watch a specific show while folding laundry.
-
-### Make it easy
-Reduce friction. Lay out your gym clothes the night before. Pre-load the app. Remove steps between you and the behaviour.
-
-The two-minute rule: any habit can be started in two minutes. "Read before bed" becomes "open the book." "Exercise" becomes "put on gym shoes." Starting is the hardest part.
-
-### Make it satisfying
-Immediate rewards reinforce behaviour. Tracking is a form of immediate reward — the satisfaction of marking a checkbox. Habit streaks work for the same reason.
+The tactical moves each law unlocks — implementation intentions, habit stacking, the two-minute rule, temptation bundling, never-miss-twice — are the heart of the book. A [full walkthrough of the four laws is here.](/blog/4-laws-of-behavior-change)
 
 ## 5. The plateau of latent potential
 
-Progress is not linear. Results lag behind effort. Clear calls this the "plateau of latent potential" — a period where you're doing the work but seeing no visible results.
+Progress is not linear. Results lag behind effort. Clear calls this the "plateau of latent potential" — a stretch where you're doing the work but seeing nothing.
 
-Most people quit here. They assume the system isn't working. In reality, the work is accumulating below the surface. The results come later, often suddenly.
+Most people quit on the plateau. They assume the system is broken. It isn't — the work is accumulating below the surface. The outputs come later, often suddenly.
 
-This is why tracking matters even when it doesn't feel like it's working. The record of consistent behaviour is evidence that the system is running, even when outcomes aren't visible yet.
+This is the reason tracking matters even when it feels pointless. The record is evidence that the system is running, even when the outcome isn't visible yet.
 
 ---
 
-The book is worth reading once. But the core ideas fit on an index card: small improvements compound, systems beat goals, identity drives behaviour, and consistency outlasts motivation.
+## If you're choosing between habit books
+
+Clear built on Charles Duhigg's *The Power of Habit* — same loop, sharper framework. If you're deciding which to read: [here's the honest tradeoff between the two.](/blog/atomic-habits-vs-power-of-habit)
+
+## The part the book doesn't give you
+
+*Atomic Habits* is a manual, not a tool. Clear tells you to track, to stack, to make it easy — but he doesn't hand you the pages to do it on. That's the gap most people fall into: they finish the book excited, then never build the daily container.
+
+If that's where you are, the fastest path is a pre-built system: tracker, weekly review, identity log, two-minute rule cue sheet. Pick one habit, run it through the four laws, and start casting votes.

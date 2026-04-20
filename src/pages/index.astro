@@ -40,9 +40,8 @@ const NOTION_URL = "https://atomichabit.gumroad.com/l/bnefjrs";
       </ul>
       <a href={NOTION_URL} class="btn btn-primary" target="_blank" rel="noopener">Get the template</a>
     </div>
-    <!-- TODO: replace with real Notion template preview image (screenshot of the template). -->
     <div class="asset asset-notion">
-      <span class="asset-placeholder">[ Notion template preview — 800×600 ]</span>
+      <img src="/notion-preview.png" alt="Atomic Habits Notion template preview" width="800" height="600" />
     </div>
   </section>
 
@@ -148,6 +147,7 @@ const NOTION_URL = "https://atomichabit.gumroad.com/l/bnefjrs";
     font-size: 12px;
   }
   .asset-notion { aspect-ratio: 4/3; }
+  .asset img { max-width: 100%; height: auto; display: block; }
   .asset-placeholder { text-align: center; padding: 24px; }
 
   .notion-card {
