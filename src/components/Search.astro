@@ -1,0 +1,98 @@
+---
+---
+<div class="search">
+  <input
+    id="search-input"
+    type="search"
+    placeholder="search posts…"
+    autocomplete="off"
+    aria-label="Search posts"
+  />
+  <div id="search-results" class="search-results" aria-live="polite"></div>
+</div>
+
+<script is:inline>
+  (function () {
+    const input = document.getElementById("search-input");
+    const results = document.getElementById("search-results");
+    if (!input || !results) return;
+
+    let pagefind = null;
+    let pagefindFailed = false;
+
+    async function ensurePagefind() {
+      if (pagefind || pagefindFailed) return pagefind;
+      try {
+        pagefind = await import("/pagefind/pagefind.js");
+        await pagefind.options({ baseUrl: "/" });
+      } catch (e) {
+        pagefindFailed = true;
+        results.innerHTML = '<p class="search-empty">Search index not built yet. Run <code>npm run build</code>.</p>';
+      }
+      return pagefind;
+    }
+
+    let token = 0;
+    input.addEventListener("input", async (e) => {
+      const q = e.target.value.trim();
+      const myToken = ++token;
+      if (!q) { results.innerHTML = ""; return; }
+      const pf = await ensurePagefind();
+      if (!pf) return;
+      const search = await pf.search(q);
+      if (myToken !== token) return;
+      const top = await Promise.all(search.results.slice(0, 8).map((r) => r.data()));
+      if (myToken !== token) return;
+      results.innerHTML = top.length
+        ? top.map((d) => `
+            <a href="${d.url}" class="search-result">
+              <span class="search-result-title">${d.meta.title ?? d.url}</span>
+              <span class="search-result-excerpt">${d.excerpt}</span>
+            </a>`).join("")
+        : `<p class="search-empty">No matches for "${q}".</p>`;
+    });
+  })();
+</script>
+
+<style>
+  .search { margin: 0 0 32px; }
+  #search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    padding: 8px 0;
+    outline: none;
+  }
+  #search-input:focus { border-bottom-color: var(--text); }
+  #search-input::placeholder { color: var(--muted); }
+
+  .search-results { margin-top: 16px; display: flex; flex-direction: column; gap: 18px; }
+  .search-results:empty { display: none; }
+  .search-result {
+    display: block;
+    text-decoration: none;
+  }
+  .search-result-title {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .search-result-excerpt {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .search-result :global(mark) {
+    background: transparent;
+    color: var(--text);
+    font-weight: 600;
+  }
+  .search-empty { color: var(--muted); font-size: 13px; margin: 0; }
+</style>

@@ -1,77 +1,206 @@
 ---
+import Base from "../layouts/Base.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
+const latest = posts.slice(0, 3);
+
+const NOTION_URL = "https://atomichabit.gumroad.com/l/bnefjrs";
 ---
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atomic Habit Tracker — Build Better Habits</title>
-    <meta name="description" content="Practical guides on building habits that stick. No fluff, no motivation porn — just systems that work." />
-    <link rel="canonical" href="https://atomichabittracker.com" />
-    <meta property="og:title" content="Atomic Habit Tracker — Build Better Habits" />
-    <meta property="og:description" content="Practical guides on building habits that stick." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://atomichabittracker.com" />
-    <meta name="twitter:card" content="summary" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J228Q6322S"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-J228Q6322S');
-    </script>
-  </head>
-  <body>
-    <div class="site">
-      <header class="site-header">
-        <span class="site-logo">atomichabittracker</span>
-      </header>
-
-      <section class="hero">
-        <h1>Build habits that stick.</h1>
-        <p>Practical guides on habit systems, tracking, and behaviour change. No fluff.</p>
-      </section>
-
-      <hr />
-
-      <ul class="post-list">
-        {posts.map((post) => (
-          <li class="post-item">
-            <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
-            <p>{post.data.description}</p>
-            <span class="post-date">{post.data.pubDate}</span>
-          </li>
-        ))}
-      </ul>
-
-      <footer class="site-footer">
-        <span>© {new Date().getFullYear()} atomichabittracker.com</span>
-      </footer>
+<Base
+  title="Atomic Habit Tracker — The Notion System for Atomic Habits"
+  description="The exact Notion workspace for running the atomic habits method daily. Habit tracker, weekly review, identity log — pre-built."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>The Notion system for atomic habits.</h1>
+    <p class="lede">
+      Habit tracker, weekly review, identity log, and 2-minute rule cue sheet — pre-built.
+      Duplicate it to your workspace in one click and start today.
+    </p>
+    <div class="cta-row">
+      <a href={NOTION_URL} class="btn btn-primary" target="_blank" rel="noopener">Get the Notion template</a>
+      <a href="/blog" class="btn btn-ghost">Read the blog</a>
     </div>
-  </body>
-</html>
+  </section>
+
+  <!-- Notion template -->
+  <section class="notion-card">
+    <div class="notion-body">
+      <span class="eyebrow">What's inside</span>
+      <h2>A complete system, not a blank template.</h2>
+      <ul class="feature-list">
+        <li><strong>Daily habit tracker</strong> with streaks and heatmap-style view.</li>
+        <li><strong>Weekly review</strong> page with the prompts that actually matter.</li>
+        <li><strong>Identity log</strong> — the "who am I becoming" page most templates skip.</li>
+        <li><strong>2-minute rule cue sheet</strong> for starting habits that feel too big.</li>
+        <li><strong>Habit stacking planner</strong> to anchor new habits to existing ones.</li>
+      </ul>
+      <a href={NOTION_URL} class="btn btn-primary" target="_blank" rel="noopener">Get the template</a>
+    </div>
+    <!-- TODO: replace with real Notion template preview image (screenshot of the template). -->
+    <div class="asset asset-notion">
+      <span class="asset-placeholder">[ Notion template preview — 800×600 ]</span>
+    </div>
+  </section>
+
+  <!-- Why it works -->
+  <section class="what">
+    <h2>Why it works</h2>
+    <div class="what-grid">
+      <div class="what-item">
+        <h3>Built on identity, not goals</h3>
+        <p>Every action is a vote for who you're becoming. The template makes that explicit.</p>
+      </div>
+      <div class="what-item">
+        <h3>No subscription</h3>
+        <p>One-time purchase. Yours forever. Duplicate it as many times as you want.</p>
+      </div>
+      <div class="what-item">
+        <h3>Designed to survive bad weeks</h3>
+        <p>Weekly review and identity log keep the system running when motivation is gone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest posts -->
+  <section class="latest">
+    <div class="latest-head">
+      <h2>From the blog</h2>
+      <a href="/blog" class="latest-more">all posts →</a>
+    </div>
+    <ul class="post-list">
+      {latest.map((post) => (
+        <li class="post-item">
+          <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
+          <p>{post.data.description}</p>
+          <span class="post-date">{post.data.pubDate}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <h2>Start the system today.</h2>
+    <p class="final-lede">Small votes. Cast daily. The identity catches up.</p>
+    <div class="cta-row">
+      <a href={NOTION_URL} class="btn btn-primary" target="_blank" rel="noopener">Get the Notion template</a>
+    </div>
+  </section>
+</Base>
 
 <style>
-  *, *::before, *::after { box-sizing: border-box; }
-  :root { --bg: #111; --border: #222; --text: #e8e8e8; --muted: #666; --max: 680px; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: ui-monospace, "SF Mono", "Cascadia Mono", monospace; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-  a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
-  a:hover { color: #fff; }
-  h1 { margin: 0 0 0.4em; line-height: 1.3; font-weight: 600; font-size: 22px; }
-  p { margin: 0 0 1em; }
-  hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
-  .site { max-width: var(--max); margin: 0 auto; padding: 40px 24px 80px; }
-  .site-header { margin-bottom: 48px; }
-  .site-logo { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
-  .hero p { color: var(--muted); font-size: 14px; margin: 0; }
-  .post-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 28px; }
-  .post-item a { font-size: 15px; font-weight: 600; text-decoration: none; display: block; margin-bottom: 4px; }
+  section { margin: 0 0 72px; }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .hero { margin-top: 16px; margin-bottom: 88px; }
+  .hero h1 {
+    font-size: 34px;
+    line-height: 1.15;
+    margin: 0 0 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .hero .lede {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 560px;
+    margin: 0 0 28px;
+  }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .btn-primary {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+  .btn-primary:hover { background: #fff; border-color: #fff; color: var(--bg); }
+  .btn-ghost { color: var(--text); background: transparent; }
+  .btn-ghost:hover { border-color: var(--text); color: #fff; }
+
+  .asset {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .asset-notion { aspect-ratio: 4/3; }
+  .asset-placeholder { text-align: center; padding: 24px; }
+
+  .notion-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+  }
+  .notion-body h2 { font-size: 22px; margin: 0 0 16px; line-height: 1.25; }
+  @media (min-width: 640px) {
+    .notion-card { grid-template-columns: 1fr 1fr; align-items: center; }
+  }
+
+  .feature-list { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+  .feature-list li { padding-left: 18px; position: relative; color: var(--muted); }
+  .feature-list li::before { content: "→"; position: absolute; left: 0; color: var(--text); }
+  .feature-list strong { color: var(--text); font-weight: 600; }
+
+  .what h2 { font-size: 22px; margin: 0 0 24px; }
+  .what-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  .what-item h3 { font-size: 15px; margin: 0 0 6px; }
+  .what-item p { color: var(--muted); font-size: 13px; margin: 0; }
+  @media (min-width: 640px) {
+    .what-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .latest-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; }
+  .latest-head h2 { font-size: 22px; margin: 0; }
+  .latest-more { font-size: 13px; color: var(--muted); }
+  .latest-more:hover { color: var(--text); }
+
+  .post-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
+  .post-item a {
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
   .post-item a:hover { text-decoration: underline; }
   .post-item p { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
   .post-date { font-size: 11px; color: var(--muted); }
-  .site-footer { margin-top: 64px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 24px; }
+
+  .final-cta {
+    margin-top: 80px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .final-cta h2 { font-size: 22px; margin: 0 0 8px; }
+  .final-lede { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+  .final-cta .cta-row { justify-content: center; }
 </style>

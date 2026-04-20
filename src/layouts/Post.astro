@@ -6,6 +6,7 @@ export interface Props {
   slug: string;
 }
 const { title, description, pubDate, slug } = Astro.props;
+const NOTION_URL = "https://atomichabit.gumroad.com/l/bnefjrs";
 ---
 <html lang="en">
   <head>
@@ -20,7 +21,7 @@ const { title, description, pubDate, slug } = Astro.props;
     <meta property="og:url" content={`https://atomichabittracker.com/blog/${slug}`} />
     <meta name="twitter:card" content="summary" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J228Q6322S"></script>
-    <script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -32,7 +33,7 @@ const { title, description, pubDate, slug } = Astro.props;
       <header class="site-header">
         <a href="/" class="site-logo">atomichabittracker</a>
       </header>
-      <article class="post">
+      <article class="post" data-pagefind-body>
         <header class="post-header">
           <p class="post-date">{pubDate}</p>
           <h1>{title}</h1>
@@ -41,10 +42,14 @@ const { title, description, pubDate, slug } = Astro.props;
         <hr />
         <div class="post-body">
           <slot />
+          <aside class="post-cta" data-pagefind-ignore>
+            <p><strong>Want the system, not just the theory?</strong></p>
+            <p>Get the <a href={NOTION_URL} target="_blank" rel="noopener">Atomic Habits Notion template</a> — the exact setup I use to run the system daily.</p>
+          </aside>
         </div>
       </article>
       <footer class="site-footer">
-        <a href="/">← all posts</a>
+        <a href="/blog">← all posts</a>
         <span>© {new Date().getFullYear()} atomichabittracker.com</span>
       </footer>
     </div>
@@ -85,6 +90,7 @@ const { title, description, pubDate, slug } = Astro.props;
   li { margin-bottom: 0.4em; }
   hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
   blockquote { border-left: 2px solid var(--border); margin: 1.5em 0; padding: 0.2em 1em; color: var(--muted); }
+  code { font-family: inherit; background: var(--bg-card); padding: 1px 5px; font-size: 0.9em; }
 
   .site {
     max-width: var(--max);
@@ -119,6 +125,14 @@ const { title, description, pubDate, slug } = Astro.props;
   }
 
   .post-body h2 { margin-top: 2em; }
+
+  .post-cta {
+    border-left: 2px solid var(--text);
+    margin: 2.5em 0 0;
+    padding: 0.4em 1em;
+  }
+  .post-cta p { margin-bottom: 0.4em; }
+  .post-cta p:last-child { margin-bottom: 0; }
 
   .site-footer {
     margin-top: 64px;
