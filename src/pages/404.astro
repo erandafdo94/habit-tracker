@@ -1,0 +1,128 @@
+---
+import Base from "../layouts/Base.astro";
+import { TAGS } from "../lib/tags.ts";
+const popular = TAGS.slice(0, 6);
+---
+<Base
+  title="Page not found, atomic"
+  description="The page you were looking for doesn't exist. Try one of the topics below or head back home."
+>
+  <section class="container container--narrow not-found">
+    <p class="eyebrow">404</p>
+    <h1>This page didn't stick.</h1>
+    <p class="lede">
+      The page you were looking for doesn't exist, maybe it moved, maybe it never did. Try one of the topics below, or head back to the home page.
+    </p>
+    <div class="actions">
+      <a class="btn" href="/">Back home</a>
+      <a class="btn btn--ghost" href="/blog/">All articles</a>
+    </div>
+
+    <h2 class="topics-title">Popular topics</h2>
+    <ul class="topics">
+      {popular.map((t) => (
+        <li>
+          <a href={`/tags/${t.slug}/`}>
+            <strong>{t.label}</strong>
+            <span>{t.description}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <style>
+    .not-found {
+      padding-top: var(--space-8);
+      padding-bottom: var(--space-9);
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: var(--step--1);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-3);
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: var(--step-4);
+      font-weight: 500;
+      line-height: var(--leading-tight);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+    }
+    .lede {
+      font-size: var(--step-1);
+      color: var(--fg-muted);
+      max-width: 56ch;
+      margin-bottom: var(--space-6);
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-2);
+      background: var(--accent);
+      color: white;
+      font-weight: 500;
+      font-size: var(--step--1);
+      transition: background var(--duration-fast) var(--ease-out);
+    }
+    .btn:hover { background: var(--accent-hover); }
+    .btn--ghost {
+      background: transparent;
+      color: var(--fg);
+      border: 1px solid var(--border-strong);
+    }
+    .btn--ghost:hover { background: var(--bg-elev); }
+    .topics-title {
+      font-family: var(--font-sans);
+      font-size: var(--step--1);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: var(--space-4);
+    }
+    .topics {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+    @media (min-width: 640px) {
+      .topics { grid-template-columns: 1fr 1fr; }
+    }
+    .topics a {
+      display: block;
+      padding: var(--space-4);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-2);
+      transition: border-color var(--duration-fast) var(--ease-out),
+        background var(--duration-fast) var(--ease-out);
+    }
+    .topics a:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-elev);
+    }
+    .topics strong {
+      display: block;
+      font-size: var(--step-0);
+      color: var(--fg);
+      margin-bottom: var(--space-1);
+    }
+    .topics span {
+      font-size: var(--step--1);
+      color: var(--fg-muted);
+    }
+  </style>
+</Base>

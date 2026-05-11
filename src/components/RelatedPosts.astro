@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostCard from "./PostCard.astro";
+import { relatedPosts } from "../lib/related.ts";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+  all: CollectionEntry<"blog">[];
+  count?: number;
+}
+
+const { post, all, count = 3 } = Astro.props;
+const related = relatedPosts(post, all, count);
+---
+{related.length > 0 && (
+  <section class="related" aria-labelledby="related-heading">
+    <div class="container">
+      <h2 id="related-heading" class="section-eyebrow">Keep reading</h2>
+      <div class="related-grid">
+        {related.map((p) => <PostCard post={p} />)}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .related {
+    padding: var(--space-8) 0 var(--space-6);
+    border-top: 1px solid var(--border);
+    margin-top: var(--space-8);
+  }
+  .section-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: var(--space-5);
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  @media (min-width: 640px) {
+    .related-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 1024px) {
+    .related-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+</style>

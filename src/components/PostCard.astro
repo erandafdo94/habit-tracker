@@ -1,0 +1,128 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PostMeta from "./PostMeta.astro";
+import { readingTime } from "../lib/reading-time.ts";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+  variant?: "default" | "featured";
+}
+
+const { post, variant = "default" } = Astro.props;
+const body = post.body ?? "";
+const minutes = readingTime(body);
+const primaryTag = post.data.tags[0];
+---
+<article class={`card card--${variant}`}>
+  <a href={`/blog/${post.data.slug}/`} class="card-link" aria-label={post.data.title}></a>
+  <div class="card-body">
+    {variant === "featured" && <span class="card-eyebrow">Start here</span>}
+    <h3 class="card-title">{post.data.title}</h3>
+    <p class="card-desc">{post.data.description}</p>
+    <div class="card-meta">
+      <PostMeta
+        pubDate={post.data.pubDate}
+        updatedDate={post.data.updatedDate}
+        readingMinutes={minutes}
+        primaryTag={primaryTag}
+        compact
+      />
+    </div>
+  </div>
+</article>
+
+<style>
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-3);
+    background: var(--bg);
+    transition: border-color var(--duration-base) var(--ease-out),
+      transform var(--duration-base) var(--ease-out),
+      box-shadow var(--duration-base) var(--ease-out);
+    height: 100%;
+  }
+  .card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px -12px hsl(220 20% 20% / 0.18);
+  }
+  .card-link {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: 1;
+  }
+  .card-link:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .card-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    height: 100%;
+  }
+  .card-eyebrow {
+    align-self: flex-start;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-1);
+  }
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: var(--step-1);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+  }
+  .card-desc {
+    color: var(--fg-muted);
+    font-size: var(--step-0);
+    line-height: 1.55;
+    flex: 1;
+  }
+  .card-meta {
+    position: relative;
+    z-index: 2;
+    margin-top: var(--space-2);
+  }
+  .card-meta :global(.tag-pill) {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Featured variant, larger, full-width hero card */
+  .card--featured {
+    padding: var(--space-7);
+    background: linear-gradient(
+      135deg,
+      var(--bg-elev) 0%,
+      var(--bg) 100%
+    );
+    border-color: var(--border);
+  }
+  .card--featured .card-title {
+    font-size: var(--step-3);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .card--featured .card-desc {
+    font-size: var(--step-1);
+    max-width: 60ch;
+  }
+  @media (min-width: 768px) {
+    .card--featured {
+      padding: var(--space-8);
+    }
+  }
+</style>

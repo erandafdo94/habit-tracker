@@ -1,77 +1,110 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "../../layouts/Base.astro";
-import Search from "../../components/Search.astro";
+import PostCard from "../../components/PostCard.astro";
 
 export async function getStaticPaths({ paginate }: any) {
   const posts = (await getCollection("blog")).sort(
-    (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+    (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
   );
-  return paginate(posts, { pageSize: 8 });
+  return paginate(posts, { pageSize: 9 });
 }
 
 const { page } = Astro.props;
+const isFirst = page.currentPage === 1;
 ---
 <Base
-  title="Atomic Habit Tracker — Build Better Habits"
-  description="Practical guides on building habits that stick. No fluff, no motivation porn — just systems that work."
+  title={isFirst ? "All articles, atomic" : `Articles · page ${page.currentPage}, atomic`}
+  description="Every article on atomic, practical guides on building better habits and breaking the bad ones."
 >
-  <section class="hero" data-pagefind-ignore>
-    <h1>Build habits that stick.</h1>
-    <p>Practical guides on habit systems, tracking, and behaviour change. No fluff.</p>
+  <section class="page-header">
+    <div class="container container--narrow">
+      <p class="eyebrow">Articles</p>
+      <h1>Every guide. All in one place.</h1>
+      <p class="lede">
+        Browse all {page.total} articles, or use search ({"⌘"}K) or topics to find a specific one.
+      </p>
+    </div>
   </section>
 
-  <Search />
+  <section class="listing">
+    <div class="container">
+      <div class="post-grid">
+        {page.data.map((post: any) => <PostCard post={post} />)}
+      </div>
 
-  <hr />
-
-  <ul class="post-list">
-    {page.data.map((post: any) => (
-      <li class="post-item">
-        <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
-        <p>{post.data.description}</p>
-        <span class="post-date">{post.data.pubDate}</span>
-      </li>
-    ))}
-  </ul>
-
-  {(page.url.prev || page.url.next) && (
-    <nav class="pager" aria-label="Pagination">
-      {page.url.prev ? <a href={page.url.prev}>← newer</a> : <span />}
-      <span class="pager-info">page {page.currentPage} of {page.lastPage}</span>
-      {page.url.next ? <a href={page.url.next}>older →</a> : <span />}
-    </nav>
-  )}
+      {(page.url.prev || page.url.next) && (
+        <nav class="pager" aria-label="Pagination">
+          {page.url.prev
+            ? <a href={page.url.prev} class="pager-link">← Newer</a>
+            : <span />}
+          <span class="pager-info">Page {page.currentPage} of {page.lastPage}</span>
+          {page.url.next
+            ? <a href={page.url.next} class="pager-link">Older →</a>
+            : <span />}
+        </nav>
+      )}
+    </div>
+  </section>
 </Base>
 
 <style>
-  .hero { margin-bottom: 32px; }
-  .hero h1 { margin: 0 0 0.4em; line-height: 1.3; font-weight: 600; font-size: 22px; }
-  .hero p { color: var(--muted); font-size: 14px; margin: 0; }
-
-  .post-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 28px; }
-  .post-item a {
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 4px;
-    color: var(--text);
+  .page-header {
+    padding: var(--space-7) 0 var(--space-6);
   }
-  .post-item a:hover { text-decoration: underline; }
-  .post-item p { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
-  .post-date { font-size: 11px; color: var(--muted); }
-
+  @media (min-width: 768px) {
+    .page-header { padding: var(--space-8) 0 var(--space-7); }
+  }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: var(--step-4);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+    max-width: 18ch;
+  }
+  .lede {
+    font-size: var(--step-0);
+    color: var(--fg-muted);
+    max-width: 52ch;
+  }
+  .listing { padding-bottom: var(--space-9); }
+  .post-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  @media (min-width: 640px) {
+    .post-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .post-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
   .pager {
-    margin-top: 48px;
-    padding-top: 24px;
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    font-size: 13px;
+    gap: var(--space-3);
+    font-size: var(--step--1);
+    color: var(--fg-muted);
   }
-  .pager-info { color: var(--muted); font-size: 12px; }
-  .pager a { color: var(--text); }
+  .pager-link {
+    color: var(--fg);
+    font-weight: 500;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+  .pager-link:hover { color: var(--accent); }
 </style>

@@ -1,0 +1,79 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource/fraunces/400.css";
+@import "@fontsource/fraunces/500.css";
+@import "@fontsource/fraunces/600.css";
+
+:root {
+  color-scheme: light;
+
+  --bg: hsl(40 30% 98%);
+  --bg-elev: hsl(40 30% 95%);
+  --bg-subtle: hsl(40 30% 92%);
+
+  --fg: hsl(220 10% 12%);
+  --fg-muted: hsl(220 8% 38%);
+  --fg-subtle: hsl(220 8% 55%);
+
+  --border: hsl(40 10% 86%);
+  --border-strong: hsl(40 10% 70%);
+
+  --accent: hsl(20 80% 45%);
+  --accent-hover: hsl(20 80% 38%);
+  --focus: hsl(220 90% 50%);
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --step--1: clamp(0.83rem, 0.80rem + 0.15vw, 0.89rem);
+  --step-0: clamp(1.00rem, 0.95rem + 0.25vw, 1.13rem);
+  --step-1: clamp(1.20rem, 1.10rem + 0.50vw, 1.42rem);
+  --step-2: clamp(1.44rem, 1.25rem + 0.95vw, 1.80rem);
+  --step-3: clamp(1.73rem, 1.40rem + 1.65vw, 2.27rem);
+  --step-4: clamp(2.07rem, 1.55rem + 2.60vw, 2.86rem);
+  --step-5: clamp(2.49rem, 1.70rem + 3.95vw, 3.61rem);
+
+  --leading-body: 1.7;
+  --leading-tight: 1.2;
+  --measure: 66ch;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --radius-3: 16px;
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+
+  --site-max: 1120px;
+  --content-max: 720px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: hsl(220 14% 9%);
+  --bg-elev: hsl(220 12% 13%);
+  --bg-subtle: hsl(220 10% 16%);
+
+  --fg: hsl(40 12% 92%);
+  --fg-muted: hsl(40 8% 68%);
+  --fg-subtle: hsl(40 6% 52%);
+
+  --border: hsl(220 8% 22%);
+  --border-strong: hsl(220 8% 34%);
+
+  --accent: hsl(20 80% 60%);
+  --accent-hover: hsl(20 90% 68%);
+  --focus: hsl(220 90% 70%);
+}

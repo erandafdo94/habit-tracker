@@ -1,15 +1,35 @@
 ---
+import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import Search from "../components/Search.astro";
+import JsonLd from "../components/JsonLd.astro";
+
 export interface Props {
   title: string;
   description: string;
   slug?: string;
+  pageType?: "website" | "article";
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
-const { title, description, slug } = Astro.props;
-const canonical = `https://atomichabittracker.com${slug ? `/blog/${slug}` : ""}`;
+
+const { title, description, slug, pageType = "website", jsonLd } = Astro.props;
+const canonical = `https://atomichabittracker.com${slug ? `/blog/${slug}/` : Astro.url.pathname}`;
 ---
 <!doctype html>
 <html lang="en">
   <head>
+    <script is:inline>
+      (function () {
+        try {
+          var s = localStorage.getItem("theme");
+          var m = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.dataset.theme = s || (m ? "dark" : "light");
+        } catch (e) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -17,11 +37,15 @@ const canonical = `https://atomichabittracker.com${slug ? `/blog/${slug}` : ""}`
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content={slug ? "article" : "website"} />
+    <meta property="og:type" content={pageType} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:site_name" content="atomic" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="theme-color" content="#fafaf6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#13151a" media="(prefers-color-scheme: dark)" />
+    {jsonLd && <JsonLd data={jsonLd} />}
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J228Q6322S"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
@@ -29,54 +53,31 @@ const canonical = `https://atomichabittracker.com${slug ? `/blog/${slug}` : ""}`
       gtag('js', new Date());
       gtag('config', 'G-J228Q6322S');
     </script>
-    <style>
-      @import url('/src/styles/global.css');
-    </style>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <div class="site">
-      <header class="site-header">
-        <a href="/" class="site-logo">atomichabittracker</a>
-      </header>
-      <main>
+      <SiteHeader />
+      <main id="main">
         <slot />
       </main>
-      <footer class="site-footer">
-        <span>© {new Date().getFullYear()} atomichabittracker.com</span>
-      </footer>
+      <SiteFooter />
     </div>
+    <Search />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -100px;
+        left: var(--space-4);
+        padding: var(--space-2) var(--space-3);
+        background: var(--accent);
+        color: white;
+        border-radius: var(--radius-2);
+        font-size: var(--step--1);
+        z-index: 100;
+      }
+      .skip-link:focus { top: var(--space-4); }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  @import '../styles/global.css';
-
-  .site {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 40px 24px 80px;
-  }
-
-  .site-header {
-    margin-bottom: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .site-logo {
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    color: var(--text);
-  }
-
-  .site-footer {
-    margin-top: 64px;
-    font-size: 12px;
-    color: var(--muted);
-    border-top: 1px solid var(--border);
-    padding-top: 24px;
-  }
-</style>

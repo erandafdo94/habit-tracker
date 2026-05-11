@@ -3,23 +3,24 @@ title: "Keystone Habits: The Small Habits That Change Everything Else"
 description: "Some habits pull other habits with them. Here's how to find the one or two that quietly rewire the rest of your day."
 pubDate: "2026-04-01"
 slug: "keystone-habits-that-change-everything"
+tags: ["routines", "behavior-change"]
 ---
 
 Most habit advice treats every habit like a separate project. Install flossing here. Install meditation there. Install journaling over there. Each one a discrete battle.
 
-That model is wrong. Some habits do far more than their own weight — they pull other habits with them. Charles Duhigg called these **keystone habits** in *The Power of Habit*. Get one right and a chain reaction follows.
+That model is wrong. Some habits do far more than their own weight, they pull other habits with them. Charles Duhigg called these **keystone habits** in *The Power of Habit*. Get one right and a chain reaction follows.
 
 This is the single highest-leverage idea in behaviour change. Most people ignore it because it sounds soft. It isn't.
 
 ## What a keystone habit actually is
 
-A keystone habit is a habit that, once installed, makes several other habits easier or more automatic — usually without conscious effort.
+A keystone habit is a habit that, once installed, makes several other habits easier or more automatic, usually without conscious effort.
 
 Classic examples:
 
 - **Exercise.** People who start exercising tend to eat better, sleep earlier, drink less, and procrastinate less. Nobody decides to change those things. They just follow.
 - **Making your bed.** Sounds trivial. Isn't. It's a small win first thing in the morning that triggers a sequence of other small wins.
-- **Weekly planning.** Thirty minutes on a Sunday reshapes what the next five days look like — including which other habits you'll have the energy to run.
+- **Weekly planning.** Thirty minutes on a Sunday reshapes what the next five days look like, including which other habits you'll have the energy to run.
 
 The common thread: keystone habits generate either **small wins** (which compound into belief that change is possible) or **structural side effects** (more energy, cleaner environment, clearer priorities) that make other habits cheaper to run.
 
@@ -45,8 +46,8 @@ Slower by the day. Faster by the year.
 
 ## The practical version
 
-Pick one habit this week that has at least three downstream effects. Don't track six habits — track only the keystone for the first month. Use the [atomic habit tracker](/) if you want the streak data, or any pen-and-paper method.
+Pick one habit this week that has at least three downstream effects. Don't track six habits, track only the keystone for the first month. Use the [atomic habit tracker](/) if you want the streak data, or any pen-and-paper method.
 
-At the end of the month, look at what else changed. If other habits got easier without effort, you picked right. If nothing else shifted, the habit wasn't a keystone — it was just a habit. Swap it and try again.
+At the end of the month, look at what else changed. If other habits got easier without effort, you picked right. If nothing else shifted, the habit wasn't a keystone, it was just a habit. Swap it and try again.
 
 The goal isn't a flawless habit tracker. It's finding the lever that moves the rest.

@@ -1,13 +1,14 @@
 ---
 title: "Habit Tracking Methods Compared: Paper vs App vs Spreadsheet"
-description: "A practical comparison of the three main ways to track habits — paper, app, or spreadsheet. What works, what doesn't, and which one fits your setup."
+description: "A practical comparison of the three main ways to track habits, paper, app, or spreadsheet. What works, what doesn't, and which one fits your setup."
 pubDate: "2025-03-05"
 slug: "habit-tracking-methods-compared"
+tags: ["habit-tracking"]
 ---
 
 There are three realistic ways to track habits: paper, a dedicated app, or a spreadsheet (including Notion). Each has real trade-offs. Here's an honest comparison.
 
-Before the comparison — understand why tracking works at all. It's not about the data; it's about the immediate-reward loop it creates for delayed-reward behaviours. ([The psychology of habit tracking.](/blog/habit-tracker-benefits))
+Before the comparison, understand why tracking works at all. It's not about the data; it's about the immediate-reward loop it creates for delayed-reward behaviours. ([The psychology of habit tracking.](/blog/habit-tracker-benefits))
 
 ## Paper (bullet journal, habit grid, printed template)
 
@@ -54,7 +55,7 @@ Before the comparison — understand why tracking works at all. It's not about t
 **Pros:**
 
 - Fully customisable
-- Easy to analyse data — streaks, completion rates, trends over time
+- Easy to analyse data, streaks, completion rates, trends over time
 - Free
 - Data is yours and portable
 - Can combine daily tracking with weekly review and notes in the same place
@@ -62,11 +63,11 @@ Before the comparison — understand why tracking works at all. It's not about t
 **Cons:**
 
 - Requires setup time up front
-- Less convenient on mobile (varies — Notion is better than Sheets here)
+- Less convenient on mobile (varies, Notion is better than Sheets here)
 - No reminders unless you build them
 - Easy to over-engineer and abandon
 
-**Best for:** People who are already in Notion or spreadsheets daily, or who want the full system — tracker, weekly review, identity log — in one place rather than fragmented across apps.
+**Best for:** People who are already in Notion or spreadsheets daily, or who want the full system, tracker, weekly review, identity log, in one place rather than fragmented across apps.
 
 ---
 
@@ -80,12 +81,12 @@ Pick one. Use it for 30 days before switching. Most people who "try everything" 
 
 ## One rule regardless of method
 
-Track daily, not weekly. Weekly reviews are useful for reflection, but the tracking itself needs to happen on the day. Memory is unreliable — filling in a week's worth of checkboxes on Sunday is guesswork.
+Track daily, not weekly. Weekly reviews are useful for reflection, but the tracking itself needs to happen on the day. Memory is unreliable, filling in a week's worth of checkboxes on Sunday is guesswork.
 
 Mark it done the moment you do it, or at a fixed time each evening. Stack the tracking onto an existing anchor. ([How to use habit stacking to make tracking automatic.](/blog/habit-stacking-guide))
 
 ## Why Notion has become the default for operators
 
-Notion's advantage isn't prettiness. It's that you can combine daily tracking, weekly review, identity log, and a 2-minute rule cue sheet in one place — so the system runs end-to-end without you jumping between tools. The downside is setup time. Build it wrong and you'll abandon it in two weeks.
+Notion's advantage isn't prettiness. It's that you can combine daily tracking, weekly review, identity log, and a 2-minute rule cue sheet in one place, so the system runs end-to-end without you jumping between tools. The downside is setup time. Build it wrong and you'll abandon it in two weeks.
 
-That's the gap a pre-built system closes — no setup, just duplicate and start.
+That's the gap a pre-built system closes, no setup, just duplicate and start.

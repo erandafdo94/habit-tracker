@@ -1,15 +1,16 @@
 ---
 title: "Habit Streaks: When They Help, When They Backfire"
-description: "Streaks are a powerful motivator — until they become the goal. Here's how to use streak tracking correctly, and the failure modes to avoid."
+description: "Streaks are a powerful motivator, until they become the goal. Here's how to use streak tracking correctly, and the failure modes to avoid."
 pubDate: "2025-04-10"
 slug: "habit-streaks-psychology"
+tags: ["habit-tracking", "motivation"]
 ---
 
-Streaks work. The psychological pull of an unbroken chain is real and well-documented. But streaks also fail in predictable ways — and knowing the failure modes is what makes them useful instead of corrosive.
+Streaks work. The psychological pull of an unbroken chain is real and well-documented. But streaks also fail in predictable ways, and knowing the failure modes is what makes them useful instead of corrosive.
 
 ## Why streaks are effective
 
-A streak creates loss aversion. Once you have a 14-day streak, breaking it feels like losing something. Same mechanism that makes people hold losing stocks too long — the pain of loss is stronger than the pleasure of gain.
+A streak creates loss aversion. Once you have a 14-day streak, breaking it feels like losing something. Same mechanism that makes people hold losing stocks too long, the pain of loss is stronger than the pleasure of gain.
 
 For habit formation, that's useful. On days when you don't feel like running the habit, the streak gives you a reason to anyway.
 
@@ -19,7 +20,7 @@ Streaks also provide visible evidence of consistency. A 30-day streak is proof y
 
 ### The all-or-nothing trap
 
-When the streak becomes the goal, missing one day feels catastrophic. People heavily invested in a streak sometimes respond to breaking it by abandoning the habit entirely. *"I've broken the streak — no point continuing until I can start fresh."*
+When the streak becomes the goal, missing one day feels catastrophic. People heavily invested in a streak sometimes respond to breaking it by abandoning the habit entirely. *"I've broken the streak, no point continuing until I can start fresh."*
 
 This is the streak working against you. The habit is the goal. The streak is a tool. A broken streak doesn't undo the 30 days of behaviour that preceded it.
 
@@ -41,7 +42,7 @@ If a streak is causing stress, it's not serving its purpose. Break it deliberate
 
 A perfect streak is fragile. Life will intervene. A better rule: never miss two days in a row. This allows for one missed day without catastrophising while keeping the pressure to return fast.
 
-This is the fourth law — *make it satisfying* — done right, instead of the perfectionist version of it. ([Full four-law walkthrough.](/blog/4-laws-of-behavior-change))
+This is the fourth law, *make it satisfying*, done right, instead of the perfectionist version of it. ([Full four-law walkthrough.](/blog/4-laws-of-behavior-change))
 
 ### Track weekly completion rate alongside streaks
 
@@ -55,7 +56,7 @@ Streaks are most useful early, before the behaviour is automatic. Once the habit
 
 ### Don't stack too many streaks
 
-Tracking five habits with streaks simultaneously creates compounding pressure. If one breaks, the psychological hit affects all of them. Keep streak tracking to your highest-priority habits — two or three at most. ([More on picking the right few habits to focus on.](/blog/keystone-habits-that-change-everything))
+Tracking five habits with streaks simultaneously creates compounding pressure. If one breaks, the psychological hit affects all of them. Keep streak tracking to your highest-priority habits, two or three at most. ([More on picking the right few habits to focus on.](/blog/keystone-habits-that-change-everything))
 
 ## The Seinfeld method
 
@@ -67,4 +68,4 @@ The detail most people miss: Seinfeld was already a professional writer with str
 
 ---
 
-Streaks are a useful tool with real psychological power. Use them to build momentum in the early stages. Don't let them become the goal. And when they break — because they will — treat it as a data point, not a failure.
+Streaks are a useful tool with real psychological power. Use them to build momentum in the early stages. Don't let them become the goal. And when they break, because they will, treat it as a data point, not a failure.

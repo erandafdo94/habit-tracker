@@ -1,8 +1,9 @@
 ---
 title: "Habit Stacking: The Most Reliable Way to Install a New Habit"
-description: "How to use existing routines as triggers for new habits — with practical examples, rules for picking anchors, and a template you can use today."
+description: "How to use existing routines as triggers for new habits, with practical examples, rules for picking anchors, and a template you can use today."
 pubDate: "2025-03-20"
 slug: "habit-stacking-guide"
+tags: ["habit-stacking", "behavior-change"]
 ---
 
 The hardest part of a new habit is remembering to do it. Habit stacking solves this by attaching the new behaviour to one you already run on autopilot.
@@ -11,7 +12,7 @@ The format:
 
 > After [current habit], I will [new habit].
 
-The existing habit is the cue. You don't need willpower or reminders — the trigger fires because the anchor is already automatic. It's one of the most tactical moves inside the four laws of behaviour change, specifically the first law: *make it obvious.* ([Full walkthrough of the four laws.](/blog/4-laws-of-behavior-change))
+The existing habit is the cue. You don't need willpower or reminders, the trigger fires because the anchor is already automatic. It's one of the most tactical moves inside the four laws of behaviour change, specifically the first law: *make it obvious.* ([Full walkthrough of the four laws.](/blog/4-laws-of-behavior-change))
 
 ## Why it works
 
@@ -36,7 +37,7 @@ These are your anchors. Each one is a potential trigger.
 
 ### Step 2: Match the new habit to the right anchor
 
-The anchor and the new habit should be in the same context. Don't stack "do 10 push-ups" onto "sit down at my desk" — the context is wrong. Stack it onto "get out of bed" or "finish my morning coffee."
+The anchor and the new habit should be in the same context. Don't stack "do 10 push-ups" onto "sit down at my desk", the context is wrong. Stack it onto "get out of bed" or "finish my morning coffee."
 
 Mismatched context is one of the main reasons stacks fail.
 
@@ -81,7 +82,7 @@ You can chain habits into a sequence:
 
 Each step triggers the next. The chain becomes a single routine that runs automatically.
 
-Keep chains short — three to four habits max. Long chains break when any single link fails. Once the chain is solid, you can extend it.
+Keep chains short, three to four habits max. Long chains break when any single link fails. Once the chain is solid, you can extend it.
 
 ## When habit stacks fail
 
@@ -93,6 +94,6 @@ Keep chains short — three to four habits max. Long chains break when any singl
 
 ---
 
-Habit stacking isn't magic. It's a way of reducing the cognitive load of remembering to do something new. The habit still has to be done — the stack just makes sure you don't forget.
+Habit stacking isn't magic. It's a way of reducing the cognitive load of remembering to do something new. The habit still has to be done, the stack just makes sure you don't forget.
 
 Pick one anchor. Pick one new habit. Write the stack down. Do it tomorrow.

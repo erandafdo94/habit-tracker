@@ -1,0 +1,171 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+---
+<header class="site-header">
+  <div class="container header-row">
+    <a href="/" class="brand" aria-label="Atomic, home">
+      <span class="brand-mark" aria-hidden="true">a</span>
+      <span class="brand-word">atomic</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" aria-label="Primary" data-nav>
+      <a href="/blog/">Articles</a>
+      <a href="/tags/">Topics</a>
+      <a href="/about/">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="search-trigger" type="button" aria-label="Search" data-search-open>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-3.5-3.5"></path>
+        </svg>
+      </button>
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    var btn = document.querySelector("[data-nav-toggle]");
+    var nav = document.querySelector("[data-nav]");
+    if (!btn || !nav) return;
+    btn.addEventListener("click", function () {
+      var open = nav.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+  })();
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklab, var(--bg), transparent 10%);
+    backdrop-filter: saturate(160%) blur(10px);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-4);
+    min-height: 64px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: var(--step-1);
+    letter-spacing: -0.01em;
+    color: var(--fg);
+  }
+  .brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+  }
+  .brand-word { display: none; }
+  @media (min-width: 480px) {
+    .brand-word { display: inline; }
+  }
+  .nav {
+    display: none;
+    gap: var(--space-5);
+    justify-self: center;
+  }
+  .nav a {
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    font-weight: 500;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+  .nav a:hover { color: var(--fg); }
+  @media (min-width: 768px) {
+    .nav { display: flex; }
+  }
+  .header-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    justify-self: end;
+  }
+  .search-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-2);
+    color: var(--fg-muted);
+    transition: background var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+  .search-trigger:hover {
+    background: var(--bg-elev);
+    color: var(--fg);
+  }
+  .search-trigger svg {
+    width: 18px;
+    height: 18px;
+  }
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    border-radius: var(--radius-2);
+    justify-self: end;
+    order: 3;
+  }
+  .nav-toggle span {
+    display: block;
+    height: 1.5px;
+    background: var(--fg);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+  @media (min-width: 768px) {
+    .nav-toggle { display: none; }
+  }
+  @media (max-width: 767px) {
+    .nav {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      padding: var(--space-4) var(--space-5);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      gap: var(--space-3);
+    }
+    .nav.is-open {
+      display: flex;
+    }
+    .header-actions {
+      order: 2;
+    }
+  }
+</style>

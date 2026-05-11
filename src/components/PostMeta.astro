@@ -1,0 +1,75 @@
+---
+import { tagBySlug } from "../lib/tags.ts";
+
+export interface Props {
+  pubDate: string;
+  updatedDate?: string;
+  readingMinutes?: number;
+  primaryTag?: string;
+  compact?: boolean;
+}
+
+const { pubDate, updatedDate, readingMinutes, primaryTag, compact = false } = Astro.props;
+
+function fmt(d: string): string {
+  const dt = new Date(d);
+  return dt.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+}
+
+const tag = primaryTag ? tagBySlug(primaryTag) : undefined;
+const showUpdated = updatedDate && updatedDate !== pubDate;
+---
+<div class={`post-meta${compact ? " is-compact" : ""}`}>
+  <time datetime={pubDate}>{fmt(pubDate)}</time>
+  {showUpdated && (
+    <>
+      <span class="dot" aria-hidden="true">·</span>
+      <span class="updated">Updated {fmt(updatedDate!)}</span>
+    </>
+  )}
+  {readingMinutes && (
+    <>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>{readingMinutes} min read</span>
+    </>
+  )}
+  {tag && (
+    <a class="tag-pill" href={`/tags/${tag.slug}/`}>{tag.label}</a>
+  )}
+</div>
+
+<style>
+  .post-meta {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-size: var(--step--1);
+    color: var(--fg-muted);
+  }
+  .post-meta.is-compact {
+    font-size: 0.78rem;
+  }
+  .dot {
+    color: var(--fg-subtle);
+  }
+  .tag-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px var(--space-3);
+    margin-left: var(--space-1);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg-elev);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--fg-muted);
+    transition: color var(--duration-fast) var(--ease-out),
+      border-color var(--duration-fast) var(--ease-out);
+  }
+  .tag-pill:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+</style>

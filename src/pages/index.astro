@@ -1,206 +1,139 @@
 ---
 import Base from "../layouts/Base.astro";
+import PostCard from "../components/PostCard.astro";
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+const all = (await getCollection("blog")).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
 );
-const latest = posts.slice(0, 3);
 
-const NOTION_URL = "https://atomichabit.gumroad.com/l/bnefjrs";
+const featured = all.find((p) => p.data.featured) ?? all[0];
+const rest = all.filter((p) => p.id !== featured?.id);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "atomic",
+  url: "https://atomichabittracker.com/",
+  description: "Practical guides on building better habits and breaking bad ones.",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://atomichabittracker.com/?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
 ---
 <Base
-  title="Atomic Habit Tracker — The Notion System for Atomic Habits"
-  description="The exact Notion workspace for running the atomic habits method daily. Habit tracker, weekly review, identity log — pre-built."
+  title="atomic, Build better habits. Break the bad ones."
+  description="Practical, research-backed guides on building habits that stick and breaking the ones that don't. No fluff, no motivation porn, just systems that work."
+  jsonLd={jsonLd}
 >
-  <!-- Hero -->
   <section class="hero">
-    <h1>The Notion system for atomic habits.</h1>
-    <p class="lede">
-      Habit tracker, weekly review, identity log, and 2-minute rule cue sheet — pre-built.
-      Duplicate it to your workspace in one click and start today.
-    </p>
-    <div class="cta-row">
-      <a href={NOTION_URL} class="btn btn-primary" target="_blank" rel="noopener">Get the Notion template</a>
-      <a href="/blog" class="btn btn-ghost">Read the blog</a>
+    <div class="container container--narrow">
+      <p class="eyebrow">A blog about habits</p>
+      <h1>
+        Build better habits.<br />
+        <span class="hero-accent">Break the bad ones.</span>
+      </h1>
+      <p class="lede">
+        Practical, research-backed guides on the systems that actually change behaviour, and the
+        ones that quietly waste your time.
+      </p>
     </div>
   </section>
 
-  <!-- Notion template -->
-  <section class="notion-card">
-    <div class="notion-body">
-      <span class="eyebrow">What's inside</span>
-      <h2>A complete system, not a blank template.</h2>
-      <ul class="feature-list">
-        <li><strong>Daily habit tracker</strong> with streaks and heatmap-style view.</li>
-        <li><strong>Weekly review</strong> page with the prompts that actually matter.</li>
-        <li><strong>Identity log</strong> — the "who am I becoming" page most templates skip.</li>
-        <li><strong>2-minute rule cue sheet</strong> for starting habits that feel too big.</li>
-        <li><strong>Habit stacking planner</strong> to anchor new habits to existing ones.</li>
-      </ul>
-      <a href={NOTION_URL} class="btn btn-primary" target="_blank" rel="noopener">Get the template</a>
-    </div>
-    <div class="asset asset-notion">
-      <img src="/notion-preview.png" alt="Atomic Habits Notion template preview" width="800" height="600" />
-    </div>
-  </section>
-
-  <!-- Why it works -->
-  <section class="what">
-    <h2>Why it works</h2>
-    <div class="what-grid">
-      <div class="what-item">
-        <h3>Built on identity, not goals</h3>
-        <p>Every action is a vote for who you're becoming. The template makes that explicit.</p>
+  {featured && (
+    <section class="featured" aria-labelledby="featured-heading">
+      <div class="container">
+        <h2 id="featured-heading" class="section-eyebrow">Start here</h2>
+        <PostCard post={featured} variant="featured" />
       </div>
-      <div class="what-item">
-        <h3>No subscription</h3>
-        <p>One-time purchase. Yours forever. Duplicate it as many times as you want.</p>
-      </div>
-      <div class="what-item">
-        <h3>Designed to survive bad weeks</h3>
-        <p>Weekly review and identity log keep the system running when motivation is gone.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  )}
 
-  <!-- Latest posts -->
-  <section class="latest">
-    <div class="latest-head">
-      <h2>From the blog</h2>
-      <a href="/blog" class="latest-more">all posts →</a>
-    </div>
-    <ul class="post-list">
-      {latest.map((post) => (
-        <li class="post-item">
-          <a href={`/blog/${post.data.slug}`}>{post.data.title}</a>
-          <p>{post.data.description}</p>
-          <span class="post-date">{post.data.pubDate}</span>
-        </li>
-      ))}
-    </ul>
-  </section>
-
-  <!-- Final CTA -->
-  <section class="final-cta">
-    <h2>Start the system today.</h2>
-    <p class="final-lede">Small votes. Cast daily. The identity catches up.</p>
-    <div class="cta-row">
-      <a href={NOTION_URL} class="btn btn-primary" target="_blank" rel="noopener">Get the Notion template</a>
+  <section class="recent" aria-labelledby="recent-heading">
+    <div class="container">
+      <h2 id="recent-heading" class="section-eyebrow">Latest articles</h2>
+      <div class="post-grid">
+        {rest.map((post) => <PostCard post={post} />)}
+      </div>
     </div>
   </section>
 </Base>
 
 <style>
-  section { margin: 0 0 72px; }
-
+  .hero {
+    padding: var(--space-8) 0 var(--space-7);
+    text-align: left;
+  }
+  @media (min-width: 768px) {
+    .hero {
+      padding: var(--space-9) 0 var(--space-8);
+    }
+  }
   .eyebrow {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 0.1em;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
+    color: var(--accent);
+    margin-bottom: var(--space-4);
   }
-
-  .hero { margin-top: 16px; margin-bottom: 88px; }
   .hero h1 {
-    font-size: 34px;
-    line-height: 1.15;
-    margin: 0 0 20px;
+    font-family: var(--font-serif);
+    font-size: var(--step-5);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--fg);
+    margin-bottom: var(--space-5);
+    max-width: 18ch;
+  }
+  .hero-accent {
+    color: var(--fg-muted);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .lede {
+    font-size: var(--step-1);
+    color: var(--fg-muted);
+    max-width: 52ch;
+    line-height: 1.5;
+  }
+
+  .featured {
+    padding: var(--space-5) 0 var(--space-7);
+  }
+  .recent {
+    padding: var(--space-6) 0 var(--space-9);
+  }
+  .section-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
     font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-  .hero .lede {
-    color: var(--muted);
-    font-size: 15px;
-    max-width: 560px;
-    margin: 0 0 28px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: var(--space-5);
   }
 
-  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn {
-    display: inline-block;
-    padding: 10px 16px;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    transition: border-color 0.15s, background 0.15s;
-  }
-  .btn-primary {
-    background: var(--text);
-    color: var(--bg);
-    border-color: var(--text);
-  }
-  .btn-primary:hover { background: #fff; border-color: #fff; color: var(--bg); }
-  .btn-ghost { color: var(--text); background: transparent; }
-  .btn-ghost:hover { border-color: var(--text); color: #fff; }
-
-  .asset {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--muted);
-    font-size: 12px;
-  }
-  .asset-notion { aspect-ratio: 4/3; }
-  .asset img { max-width: 100%; height: auto; display: block; }
-  .asset-placeholder { text-align: center; padding: 24px; }
-
-  .notion-card {
+  .post-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 28px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    gap: var(--space-5);
   }
-  .notion-body h2 { font-size: 22px; margin: 0 0 16px; line-height: 1.25; }
   @media (min-width: 640px) {
-    .notion-card { grid-template-columns: 1fr 1fr; align-items: center; }
+    .post-grid {
+      grid-template-columns: 1fr 1fr;
+    }
   }
-
-  .feature-list { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
-  .feature-list li { padding-left: 18px; position: relative; color: var(--muted); }
-  .feature-list li::before { content: "→"; position: absolute; left: 0; color: var(--text); }
-  .feature-list strong { color: var(--text); font-weight: 600; }
-
-  .what h2 { font-size: 22px; margin: 0 0 24px; }
-  .what-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-  .what-item h3 { font-size: 15px; margin: 0 0 6px; }
-  .what-item p { color: var(--muted); font-size: 13px; margin: 0; }
-  @media (min-width: 640px) {
-    .what-grid { grid-template-columns: repeat(3, 1fr); }
+  @media (min-width: 1024px) {
+    .post-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
-
-  .latest-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; }
-  .latest-head h2 { font-size: 22px; margin: 0; }
-  .latest-more { font-size: 13px; color: var(--muted); }
-  .latest-more:hover { color: var(--text); }
-
-  .post-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 24px; }
-  .post-item a {
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 4px;
-    color: var(--text);
-  }
-  .post-item a:hover { text-decoration: underline; }
-  .post-item p { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
-  .post-date { font-size: 11px; color: var(--muted); }
-
-  .final-cta {
-    margin-top: 80px;
-    padding-top: 48px;
-    border-top: 1px solid var(--border);
-    text-align: center;
-  }
-  .final-cta h2 { font-size: 22px; margin: 0 0 8px; }
-  .final-lede { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
-  .final-cta .cta-row { justify-content: center; }
 </style>

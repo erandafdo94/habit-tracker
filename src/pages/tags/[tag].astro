@@ -1,0 +1,124 @@
+---
+import Base from "../../layouts/Base.astro";
+import PostCard from "../../components/PostCard.astro";
+import { getCollection } from "astro:content";
+import { TAGS, tagBySlug, TAG_SLUGS } from "../../lib/tags.ts";
+
+export async function getStaticPaths() {
+  return TAG_SLUGS.map((slug) => ({ params: { tag: slug } }));
+}
+
+const { tag } = Astro.params;
+const meta = tagBySlug(tag!);
+if (!meta) {
+  throw new Error(`Unknown tag: ${tag}`);
+}
+
+const allPosts = await getCollection("blog");
+const posts = allPosts
+  .filter((p) => p.data.tags.includes(meta.slug))
+  .sort(
+    (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+  );
+---
+<Base
+  title={`${meta.label}, atomic`}
+  description={`${meta.description} Every atomic article on ${meta.label.toLowerCase()}.`}
+>
+  <section class="page-header">
+    <div class="container container--narrow">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="/tags/">Topics</a>
+      </nav>
+      <p class="eyebrow">Topic</p>
+      <h1>{meta.label}</h1>
+      <p class="lede">{meta.description}</p>
+    </div>
+  </section>
+
+  <section class="listing">
+    <div class="container">
+      {posts.length === 0 ? (
+        <div class="empty">
+          <p>No articles in this topic yet.</p>
+          <a href="/tags/">Browse all topics →</a>
+        </div>
+      ) : (
+        <div class="post-grid">
+          {posts.map((p) => <PostCard post={p} />)}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    padding: var(--space-7) 0 var(--space-6);
+  }
+  @media (min-width: 768px) {
+    .page-header { padding: var(--space-8) 0 var(--space-7); }
+  }
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--step--1);
+    color: var(--fg-muted);
+    margin-bottom: var(--space-4);
+  }
+  .breadcrumb a {
+    color: var(--fg-muted);
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+  .breadcrumb a:hover { color: var(--accent); }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: var(--step-4);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+  }
+  .lede {
+    font-size: var(--step-0);
+    color: var(--fg-muted);
+    max-width: 56ch;
+  }
+  .listing { padding-bottom: var(--space-9); }
+  .post-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  @media (min-width: 640px) {
+    .post-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .post-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .empty {
+    padding: var(--space-7);
+    text-align: center;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-3);
+    color: var(--fg-muted);
+  }
+  .empty a {
+    display: inline-block;
+    margin-top: var(--space-3);
+    color: var(--accent);
+    font-weight: 500;
+  }
+</style>

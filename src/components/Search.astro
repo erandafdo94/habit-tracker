@@ -1,25 +1,68 @@
 ---
 ---
-<div class="search">
-  <input
-    id="search-input"
-    type="search"
-    placeholder="search posts…"
-    autocomplete="off"
-    aria-label="Search posts"
-  />
-  <div id="search-results" class="search-results" aria-live="polite"></div>
-</div>
+<dialog id="search-dialog" class="search-dialog" aria-label="Search">
+  <div class="search-modal">
+    <div class="search-header">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="m20 20-3.5-3.5"></path>
+      </svg>
+      <input
+        id="search-input"
+        type="search"
+        placeholder="Search articles…"
+        autocomplete="off"
+        aria-label="Search posts"
+      />
+      <button type="button" class="search-close" aria-label="Close search" data-search-close>Esc</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+  </div>
+</dialog>
 
 <script is:inline>
   (function () {
+    const dialog = document.getElementById("search-dialog");
     const input = document.getElementById("search-input");
     const results = document.getElementById("search-results");
-    if (!input || !results) return;
+    if (!dialog || !input || !results) return;
+
+    function openSearch() {
+      if (typeof dialog.showModal === "function" && !dialog.open) {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "");
+      }
+      setTimeout(() => input.focus(), 30);
+    }
+    function closeSearch() {
+      if (dialog.open) dialog.close();
+    }
+
+    document.addEventListener("click", (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      if (t.closest("[data-search-open]")) {
+        e.preventDefault();
+        openSearch();
+      }
+      if (t.closest("[data-search-close]")) {
+        e.preventDefault();
+        closeSearch();
+      }
+      // Click outside the modal panel
+      if (t === dialog) closeSearch();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        openSearch();
+      }
+    });
 
     let pagefind = null;
     let pagefindFailed = false;
-
     async function ensurePagefind() {
       if (pagefind || pagefindFailed) return pagefind;
       try {
@@ -55,44 +98,97 @@
 </script>
 
 <style>
-  .search { margin: 0 0 32px; }
-  #search-input {
-    width: 100%;
-    background: transparent;
+  .search-dialog {
     border: none;
-    border-bottom: 1px solid var(--border);
-    color: var(--text);
-    font-family: inherit;
-    font-size: 14px;
-    padding: 8px 0;
-    outline: none;
+    padding: 0;
+    background: transparent;
+    max-width: 640px;
+    width: calc(100% - var(--space-6));
+    margin: 10vh auto auto;
+    color: var(--fg);
   }
-  #search-input:focus { border-bottom-color: var(--text); }
-  #search-input::placeholder { color: var(--muted); }
+  .search-dialog::backdrop {
+    background: hsl(220 15% 5% / 0.55);
+    backdrop-filter: blur(4px);
+  }
+  .search-modal {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-3);
+    overflow: hidden;
+    box-shadow: 0 24px 48px -16px hsl(220 30% 5% / 0.35);
+  }
+  .search-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--border);
+  }
+  .search-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--fg-muted);
+    flex-shrink: 0;
+  }
+  #search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: var(--font-sans);
+    font-size: var(--step-0);
+    color: var(--fg);
+    padding: var(--space-2) 0;
+  }
+  #search-input::placeholder { color: var(--fg-subtle); }
+  .search-close {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-1);
+    color: var(--fg-muted);
+  }
 
-  .search-results { margin-top: 16px; display: flex; flex-direction: column; gap: 18px; }
+  .search-results {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: var(--space-2);
+  }
   .search-results:empty { display: none; }
   .search-result {
     display: block;
-    text-decoration: none;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-2);
+    transition: background var(--duration-fast) var(--ease-out);
   }
+  .search-result:hover { background: var(--bg-elev); }
   .search-result-title {
     display: block;
     font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 4px;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    font-size: var(--step-0);
+    color: var(--fg);
+    margin-bottom: var(--space-1);
   }
   .search-result-excerpt {
     display: block;
-    color: var(--muted);
-    font-size: 13px;
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    line-height: 1.5;
   }
   .search-result :global(mark) {
-    background: transparent;
-    color: var(--text);
+    background: color-mix(in oklab, var(--accent), transparent 75%);
+    color: var(--fg);
     font-weight: 600;
+    padding: 0 2px;
+    border-radius: 2px;
   }
-  .search-empty { color: var(--muted); font-size: 13px; margin: 0; }
+  .search-empty {
+    padding: var(--space-5);
+    color: var(--fg-muted);
+    font-size: var(--step--1);
+    text-align: center;
+  }
 </style>

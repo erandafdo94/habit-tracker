@@ -1,0 +1,80 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base
+  title="About, atomic"
+  description="What atomic is, why it exists, and how the writing here is sourced and edited."
+>
+  <article class="container container--narrow about">
+    <header class="about-header">
+      <p class="eyebrow">About</p>
+      <h1>A blog about habits, without the fluff.</h1>
+    </header>
+
+    <div class="prose">
+      <p>
+        <strong>atomic</strong> is a blog about building better habits and breaking bad ones. The
+        writing here aims for one thing: to be the most useful piece on its topic that you read
+        this week.
+      </p>
+
+      <h2>What you'll find</h2>
+      <p>
+        Practical, research-backed guides on behaviour change, habit stacking, habit tracking,
+        identity-based habits, routines, and the books worth reading on each. Plain English, short
+        sentences, no hype.
+      </p>
+
+      <h2>How the writing is sourced</h2>
+      <p>
+        Every non-obvious claim is tied to a named source, peer-reviewed research, recognised
+        books, or expert practitioners. Quotes are verbatim and linked. If we can't source it, we
+        don't claim it.
+      </p>
+
+      <h2>What you won't find</h2>
+      <ul>
+        <li>Motivational filler dressed up as advice.</li>
+        <li>Fabricated personal anecdotes.</li>
+        <li>Hustle-culture clichés.</li>
+        <li>Third-party trackers beyond basic, privacy-respecting analytics.</li>
+      </ul>
+
+      <h2>Start reading</h2>
+      <p>
+        New here? <a href="/blog/how-to-build-habits-that-stick/">Start with the foundational guide</a>,
+        or <a href="/tags/">browse by topic</a>.
+      </p>
+    </div>
+  </article>
+
+  <style>
+    .about {
+      padding-top: var(--space-7);
+      padding-bottom: var(--space-9);
+    }
+    @media (min-width: 768px) {
+      .about { padding-top: var(--space-8); }
+    }
+    .about-header {
+      margin-bottom: var(--space-7);
+    }
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-3);
+    }
+    .about-header h1 {
+      font-family: var(--font-serif);
+      font-size: var(--step-4);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 22ch;
+    }
+  </style>
+</Base>

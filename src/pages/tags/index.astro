@@ -1,0 +1,126 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+import { TAGS } from "../../lib/tags.ts";
+
+const posts = await getCollection("blog");
+const counts = new Map<string, number>();
+for (const t of TAGS) counts.set(t.slug, 0);
+for (const p of posts) {
+  for (const tag of p.data.tags) {
+    counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  }
+}
+---
+<Base
+  title="Topics, atomic"
+  description="Browse atomic by topic, from habit stacking to breaking bad habits, identity-based habits, and routines."
+>
+  <section class="page-header">
+    <div class="container container--narrow">
+      <p class="eyebrow">Topics</p>
+      <h1>Browse by topic.</h1>
+      <p class="lede">
+        Eight topics covering the systems, science, and practice of building better habits and breaking the ones you don't want.
+      </p>
+    </div>
+  </section>
+
+  <section class="topics-list">
+    <div class="container">
+      <ul class="topic-grid">
+        {TAGS.map((t) => (
+          <li>
+            <a href={`/tags/${t.slug}/`} class="topic-card">
+              <div class="topic-head">
+                <h2>{t.label}</h2>
+                <span class="count">{counts.get(t.slug) ?? 0}</span>
+              </div>
+              <p>{t.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    padding: var(--space-7) 0 var(--space-6);
+  }
+  @media (min-width: 768px) {
+    .page-header { padding: var(--space-8) 0 var(--space-7); }
+  }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-3);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: var(--step-4);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+  }
+  .lede {
+    font-size: var(--step-0);
+    color: var(--fg-muted);
+    max-width: 56ch;
+  }
+
+  .topics-list { padding-bottom: var(--space-9); }
+
+  .topic-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  @media (min-width: 640px) {
+    .topic-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .topic-card {
+    display: block;
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-3);
+    background: var(--bg);
+    transition: border-color var(--duration-fast) var(--ease-out),
+      background var(--duration-fast) var(--ease-out);
+  }
+  .topic-card:hover {
+    border-color: var(--accent);
+    background: var(--bg-elev);
+  }
+  .topic-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+  .topic-head h2 {
+    font-family: var(--font-serif);
+    font-size: var(--step-1);
+    font-weight: 500;
+    color: var(--fg);
+  }
+  .count {
+    font-size: var(--step--1);
+    color: var(--fg-subtle);
+    font-variant-numeric: tabular-nums;
+  }
+  .topic-card p {
+    font-size: var(--step--1);
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+</style>

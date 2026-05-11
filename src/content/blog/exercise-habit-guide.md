@@ -1,8 +1,9 @@
 ---
 title: "How to Build an Exercise Habit That Actually Lasts"
-description: "Most exercise habits die within six weeks. Here's what separates the people who stick with it from those who quit — and how to set yourself up to be the former."
+description: "Most exercise habits die within six weeks. Here's what separates the people who stick with it from those who quit, and how to set yourself up to be the former."
 pubDate: "2025-04-08"
 slug: "exercise-habit-guide"
+tags: ["routines", "behavior-change"]
 ---
 
 Exercise is the habit most people want and most people fail to hold. Gym memberships spike in January and return to baseline by March. The problem is almost never motivation. It's setup.
@@ -17,11 +18,11 @@ The most common failure mode: starting with a programme that's too demanding. Fi
 
 The fix: start with a frequency and duration you could hold even on your worst week. Two sessions of 20 minutes beats five sessions of 60 minutes as a starting point. You can always add more. You can't undo a broken habit.
 
-This is the two-minute rule applied to fitness — scale the habit down until starting is trivial. ([More on the four laws that drive it.](/blog/4-laws-of-behavior-change))
+This is the two-minute rule applied to fitness, scale the habit down until starting is trivial. ([More on the four laws that drive it.](/blog/4-laws-of-behavior-change))
 
 ### No fixed time
 
-"I'll exercise when I have time" means you won't. Time doesn't appear — it gets allocated.
+"I'll exercise when I have time" means you won't. Time doesn't appear, it gets allocated.
 
 Pick a specific time slot and treat it as a non-negotiable appointment. Morning works best for most people because interruptions haven't accumulated yet. But the best time is the one you'll actually use. ([Why morning habits tend to stick.](/blog/morning-routine-habits))
 
@@ -41,7 +42,7 @@ The research on exercise benefits shows real returns from surprisingly small amo
 
 The minimum viable habit: 10 minutes of movement, every day, at the same time. Not a workout programme. A daily movement habit.
 
-Once the habit is established — you do it without internal debate — you can scale duration or intensity. The habit comes first.
+Once the habit is established, you do it without internal debate, you can scale duration or intensity. The habit comes first.
 
 ## Reducing friction
 
@@ -50,9 +51,9 @@ The biggest predictor of exercise habit success is how easy it is to start. Ever
 Practical moves:
 
 - Sleep in your gym clothes, or lay them out the night before
-- Keep equipment visible — a kettlebell in the corner, a yoga mat unrolled
+- Keep equipment visible, a kettlebell in the corner, a yoga mat unrolled
 - Choose a gym that's on your commute route, not out of the way
-- Have a default workout you can run without thinking — removes the decision cost
+- Have a default workout you can run without thinking, removes the decision cost
 - Track completion the moment you finish
 
 ## Stacking exercise onto something existing
@@ -69,7 +70,7 @@ The anchor does the remembering for you. ([Full habit stacking guide here.](/blo
 
 Missing one day isn't a problem. Missing two in a row is the start of a new pattern.
 
-The rule: if you miss a day, the next day is non-negotiable. No exceptions, no rescheduling. The session might be shorter than usual — fine. The point is re-establishing the pattern.
+The rule: if you miss a day, the next day is non-negotiable. No exceptions, no rescheduling. The session might be shorter than usual, fine. The point is re-establishing the pattern.
 
 Don't try to make up missed sessions. A missed Monday doesn't mean doubling on Tuesday. It means doing Tuesday's session as planned.
 
@@ -77,7 +78,7 @@ Don't try to make up missed sessions. A missed Monday doesn't mean doubling on T
 
 Track completion, not performance. Did you exercise today? Yes or no.
 
-Performance metrics — distance, weight lifted, pace — are useful for training, but they're the wrong thing to track while building the habit. They introduce too many variables and create opportunities to feel like you failed when you actually showed up.
+Performance metrics, distance, weight lifted, pace, are useful for training, but they're the wrong thing to track while building the habit. They introduce too many variables and create opportunities to feel like you failed when you actually showed up.
 
 Once the habit is solid, you can layer performance tracking on top. ([Why tracking works psychologically.](/blog/habit-tracker-benefits))
 

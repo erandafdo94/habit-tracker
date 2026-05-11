@@ -1,11 +1,12 @@
 ---
 title: "Morning Routine Habits: What Works and What's Overrated"
-description: "An honest look at morning routines — which habits are actually worth building, which are hype, and how to design one that fits your life."
+description: "An honest look at morning routines, which habits are actually worth building, which are hype, and how to design one that fits your life."
 pubDate: "2025-03-15"
 slug: "morning-routine-habits"
+tags: ["routines"]
 ---
 
-Morning routines have become an industry. Cold plunges, journaling, meditation, exercise, reading, gratitude lists — the ideal morning routine apparently takes four hours and requires waking up at 4am.
+Morning routines have become an industry. Cold plunges, journaling, meditation, exercise, reading, gratitude lists, the ideal morning routine apparently takes four hours and requires waking up at 4am.
 
 Most of it is noise. Here's what's actually worth doing.
 
@@ -13,9 +14,9 @@ Most of it is noise. Here's what's actually worth doing.
 
 The morning is the highest-willpower window for most people. Decision fatigue hasn't set in. Interruptions are minimal. The day hasn't gone sideways yet.
 
-Habits placed in the morning have a higher completion rate than habits placed later in the day. This isn't a rule — night owls and shift workers have different windows — but for most people, morning is the most reliable slot.
+Habits placed in the morning have a higher completion rate than habits placed later in the day. This isn't a rule, night owls and shift workers have different windows, but for most people, morning is the most reliable slot.
 
-The morning is also a natural chain of anchors — wake up → coffee → shower — which makes it the easiest place to install a new habit via stacking. ([Full habit stacking guide here.](/blog/habit-stacking-guide))
+The morning is also a natural chain of anchors, wake up → coffee → shower, which makes it the easiest place to install a new habit via stacking. ([Full habit stacking guide here.](/blog/habit-stacking-guide))
 
 ## What's worth building
 
@@ -29,7 +30,7 @@ The barrier isn't knowledge. Everyone knows exercise is good. The barrier is fri
 
 A short, consistent sequence that signals "the day is starting" helps the brain shift into focus mode. Could be making coffee, five minutes of stretching, writing three sentences. The content matters less than the consistency.
 
-The ritual acts as a cue for everything that follows. This is the first law of behaviour change — *make it obvious* — in action. ([Full walkthrough of the four laws.](/blog/4-laws-of-behavior-change))
+The ritual acts as a cue for everything that follows. This is the first law of behaviour change, *make it obvious*, in action. ([Full walkthrough of the four laws.](/blog/4-laws-of-behavior-change))
 
 ### No phone for the first 30 minutes
 
@@ -49,7 +50,7 @@ Formal meditation has real benefits, but the 20-minute silent sitting practice d
 
 ### Cold showers
 
-The evidence for cold exposure is real but modest. The main benefit most people report is psychological — the sense of having done something hard first thing. If that works for you, keep it. If it's a thing you feel you should do, skip it.
+The evidence for cold exposure is real but modest. The main benefit most people report is psychological, the sense of having done something hard first thing. If that works for you, keep it. If it's a thing you feel you should do, skip it.
 
 ## How to design a morning routine
 
@@ -60,7 +61,7 @@ The evidence for cold exposure is real but modest. The main benefit most people 
 
 ## The one that carries the others
 
-If you can only install one morning habit, pick the one that makes the rest easier. Exercise does this for most people — it shifts mood, sleep, and energy in ways that make every other habit more likely to stick. Single habits that move many others are called keystone habits. ([Full breakdown of keystone habits.](/blog/keystone-habits-that-change-everything))
+If you can only install one morning habit, pick the one that makes the rest easier. Exercise does this for most people, it shifts mood, sleep, and energy in ways that make every other habit more likely to stick. Single habits that move many others are called keystone habits. ([Full breakdown of keystone habits.](/blog/keystone-habits-that-change-everything))
 
 ## The real goal
 
