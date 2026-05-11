@@ -74,7 +74,7 @@ If you only read one: Clear. The system beats the theory, and most people don't 
 
 ## What neither book gives you
 
-Both books are written for readers, not operators. Neither hands you the mechanical piece: a habit tracker, a weekly review, a streak log. That's the gap you fill with a tool, a [Notion template](/) like the one I use, not another book.
+Both books are written for readers, not operators. Neither hands you the mechanical piece: a habit tracker, a weekly review, a streak log. That's the gap you fill with a tool, not another book.
 
 Read one. Pick one habit. Run it through the four laws. That beats finishing both books and not installing anything.
 
