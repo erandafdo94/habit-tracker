@@ -10,10 +10,11 @@ export interface Props {
   description: string;
   slug?: string;
   pageType?: "website" | "article";
+  image?: { url: string; alt: string; width: number; height: number };
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, slug, pageType = "website", jsonLd } = Astro.props;
+const { title, description, slug, pageType = "website", image, jsonLd } = Astro.props;
 const canonical = `https://atomichabittracker.com${slug ? `/blog/${slug}/` : Astro.url.pathname}`;
 ---
 <!doctype html>
@@ -40,9 +41,23 @@ const canonical = `https://atomichabittracker.com${slug ? `/blog/${slug}/` : Ast
     <meta property="og:type" content={pageType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="atomic" />
+    {image && (
+      <Fragment>
+        <meta property="og:image" content={image.url} />
+        <meta property="og:image:width" content={String(image.width)} />
+        <meta property="og:image:height" content={String(image.height)} />
+        <meta property="og:image:alt" content={image.alt} />
+      </Fragment>
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {image && (
+      <Fragment>
+        <meta name="twitter:image" content={image.url} />
+        <meta name="twitter:image:alt" content={image.alt} />
+      </Fragment>
+    )}
     <meta name="theme-color" content="#fafaf6" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#13151a" media="(prefers-color-scheme: dark)" />
     {jsonLd && <JsonLd data={jsonLd} />}

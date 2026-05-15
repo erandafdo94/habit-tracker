@@ -11,10 +11,15 @@ export interface Props {
 }
 
 const { post, allPosts, readingMinutes } = Astro.props;
-const { title, description, pubDate, updatedDate, slug, tags } = post.data;
+const { title, description, pubDate, updatedDate, slug, tags, heroImage } = post.data;
 const primaryTag = tags[0];
 
 const url = `https://atomichabittracker.com/blog/${slug}/`;
+const heroImageUrl = heroImage ? `https://atomichabittracker.com${heroImage.src}` : undefined;
+
+const ogImage = heroImage && heroImageUrl
+  ? { url: heroImageUrl, alt: heroImage.alt, width: heroImage.width, height: heroImage.height }
+  : undefined;
 
 const articleLd = {
   "@context": "https://schema.org",
@@ -25,6 +30,14 @@ const articleLd = {
   ...(updatedDate ? { dateModified: updatedDate } : { dateModified: pubDate }),
   mainEntityOfPage: { "@type": "WebPage", "@id": url },
   url,
+  ...(heroImage && heroImageUrl && {
+    image: {
+      "@type": "ImageObject",
+      url: heroImageUrl,
+      width: heroImage.width,
+      height: heroImage.height,
+    },
+  }),
   author: { "@type": "Organization", name: "atomic", url: "https://atomichabittracker.com/" },
   publisher: { "@type": "Organization", name: "atomic" },
   keywords: tags.join(", "),
@@ -41,10 +54,11 @@ const breadcrumbLd = {
 };
 ---
 <Base
-  title={`${title}, atomic`}
+  title={`${title} | atomic`}
   description={description}
   slug={slug}
   pageType="article"
+  image={ogImage}
   jsonLd={[articleLd, breadcrumbLd]}
 >
   <article class="post" data-pagefind-body>
