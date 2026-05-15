@@ -22,4 +22,6 @@ Posts live in `src/content/blog/*.md`; schema in `src/content.config.ts`. When c
 
 ## Generating a new post
 
-Use the template at `prompts/new-blog-post.md`. Fill in the placeholders (primary keyword, title, slug, tags, date, 5 Amazon affiliate URLs) before submitting it as a prompt.
+**Trigger phrase: "generate a new blog"** (with or without a topic). When the user says this, follow the procedure in [`prompts/new-blog-post.md`](prompts/new-blog-post.md). No placeholders for the user to fill in — you research the topic, pick affiliate links from `prompts/amazon-affiliates.md`, write the post, and report back.
+
+Affiliate links are maintained by the user in [`prompts/amazon-affiliates.md`](prompts/amazon-affiliates.md). Only entries with a real URL are usable; skip any line marked `TBD`.

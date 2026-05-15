@@ -1,76 +1,65 @@
-# Prompt — generate a new blog post for atomic
+# Trigger: "generate a new blog"
 
-Fill in the placeholders below, then paste the whole block (from the `---` divider down) into a Claude Code conversation. The output is a single `.md` file at `src/content/blog/{{SLUG}}.md` plus a reminder to create the hero image.
+When the user says **"generate a new blog"** (with or without a topic), follow this procedure. No placeholders to fill in — you do the research.
 
----
+## 1. Pick or refine the topic
 
-You are writing a blog post for atomichabittracker.com, a habit-tracking product site. The blog establishes authority in habit science and behavior change. Tone: clear, direct, slightly opinionated. No hedging or marketing fluff. Cite research lightly when relevant.
+If the user supplied a topic, work on that. If they didn't, you pick:
 
-Follow the conventions in `CLAUDE.md` under "Blog post conventions (SEO)". The key constraints are repeated below.
+- List `src/content/blog/` to inventory existing posts and the keywords they target.
+- Identify a gap or higher-leverage angle that isn't already covered. Prefer:
+  - High-intent question keywords ("how to…", "why does…", "what is…") the site doesn't already own.
+  - Comparison or "vs" intent the site doesn't cover yet.
+  - Long-tail subtopics that branch off the existing pillar posts.
+- Don't cannibalize existing posts. Check the current taxonomy clusters (habit tracking, habit formation, identity, breaking bad habits, routines, book summaries) before picking.
 
-## Inputs
+State the topic you chose and a one-line reason before writing, so the user can redirect if they disagree.
 
-- **Primary keyword:** {{PRIMARY_KEYWORD}}
-- **Search intent:** {{informational | how-to | comparison | listicle | definition}}
-- **Working title (≤60 chars):** {{TITLE}}
-- **Slug (kebab-case, must match the file name):** {{SLUG}}
-- **Tags** (1–4 from this exact list: `behavior-change`, `breaking-bad-habits`, `habit-stacking`, `habit-tracking`, `identity`, `motivation`, `routines`, `book-summary`): {{TAGS}}
-- **PubDate (today, YYYY-MM-DD):** {{YYYY-MM-DD}}
+## 2. Research the topic
 
-## Amazon affiliate links
+The site is an authority blog in habit science. The bar is research-grounded, not surface-level.
 
-Use these wherever a book is mentioned. Inline format: `[*Book Title*]({{AMZN_LINK_X}})`. If you use a raw `<a>` (e.g. in the bottom CTA block), include `rel="sponsored nofollow noopener" target="_blank"`.
+- Pull from named studies, books, and frameworks where appropriate (e.g., Lally et al. 2010 for habit formation, Duhigg/Clear for the cue-routine-reward loop, Festinger 1957 for cognitive dissonance, the Fogg behaviour model).
+- Cite the source by name when the claim is non-obvious. No invented studies. No fake statistics. If a number is approximate or from memory, say so.
+- If web access is available and the topic benefits from a fresh source, use it; otherwise work from training-cutoff knowledge and mark any figure as approximate.
 
-1. **{{BOOK_1_TITLE}}** — {{AMZN_LINK_1}}
-2. **{{BOOK_2_TITLE}}** — {{AMZN_LINK_2}}
-3. **{{BOOK_3_TITLE}}** — {{AMZN_LINK_3}}
-4. **{{BOOK_4_TITLE}}** — {{AMZN_LINK_4}}
-5. **{{BOOK_5_TITLE}}** — {{AMZN_LINK_5}}
+## 3. Pick affiliate links from the source-of-truth file
 
-End the post with a "Get the book" CTA block linking to whichever of the five is most relevant. Pattern to copy from `src/content/blog/atomic-habits-summary.md`:
+Read [`prompts/amazon-affiliates.md`](prompts/amazon-affiliates.md). That file lists books with real URLs and entries marked `TBD`.
 
-```html
-<div class="book-cta">
-  <span class="book-cta-title">Get the book</span>
-  <span class="book-cta-book">{{BOOK_TITLE}} by {{AUTHOR}}</span>
-  <a class="amazon-btn" href="{{AMZN_LINK_X}}" rel="sponsored nofollow noopener" target="_blank">Buy on Amazon</a>
-  <p class="amazon-disclosure">Affiliate link. I earn a small commission at no cost to you.</p>
-</div>
-```
+- Use only entries with a real URL. Skip `TBD` lines.
+- Pick books that are genuinely relevant to the topic, not as filler.
+- One bottom `book-cta` block per post, only if a relevant book exists in the file. Match the pattern in `src/content/blog/atomic-habits-summary.md`.
+- If nothing in the file fits, skip the CTA entirely.
 
-## Requirements
+## 4. Write the post
 
-- **Length:** 1,500–2,500 words. Substance over filler — no padding to hit word count.
-- **Structure:**
-  1. Opening hook (2–3 sentences). Counterintuitive claim or specific tension.
-  2. 4–7 H2 sections, each a distinct angle on the keyword.
-  3. H3 sub-sections only where they aid scanning.
-  4. Include **either** one table **or** one numbered list, only if it clarifies the content.
-  5. End with `## FAQ` containing 3–5 Q&A pairs targeting related long-tail queries.
-  6. End with the affiliate CTA block above.
-- **Headings:** do NOT write an H1 in the body. The layout emits `<h1>` from frontmatter `title`. Start the body with the hook paragraph, then H2s.
-- **Internal links:** include 3–5 inline links to other posts in `src/content/blog/` where the topic naturally references them. Format: `[anchor text](/blog/<slug>)`. Run `ls src/content/blog/` first to see what's available.
-- **Avoid cannibalization:** before writing, check whether an existing post already targets `{{PRIMARY_KEYWORD}}` or a near-synonym. If it does, propose how this post differs (sub-angle, intent, audience) or recommend updating the existing post instead.
+Follow the "Blog post conventions (SEO)" section in [`CLAUDE.md`](CLAUDE.md). The short version:
 
-## Output
+- 1,500–2,500 words. Substance over filler.
+- Opening hook (2–3 sentences). **No H1 in the body** — the layout emits H1 from frontmatter `title`. Start with the hook, then H2s.
+- 4–7 H2 sections; H3s only when they help. One table OR one numbered list if it clarifies.
+- End with `## FAQ` (3–5 Q&A pairs).
+- 3–5 inline internal links to other posts in `src/content/blog/`.
+- Voice: clear, opinionated, no marketing fluff. British spellings ("behaviour", "automaticity", "customisable", "operationalise") to match the existing house style.
 
-Write the file at `src/content/blog/{{SLUG}}.md` with this exact frontmatter shape:
+Frontmatter (skip `heroImage` until the 1200×630 PNG exists at `public/og/<slug>.png`):
 
 ```yaml
 ---
-title: "{{TITLE}}"
-description: "{{<155-char description containing the primary keyword>}}"
-pubDate: "{{YYYY-MM-DD}}"
-slug: "{{SLUG}}"
-tags: [{{TAGS}}]
-heroImage:
-  src: "/og/{{SLUG}}.png"
-  alt: "{{<short descriptive alt text>}}"
-  width: 1200
-  height: 630
+title: "<≤60-char title>"
+description: "<≤155-char description containing the primary keyword>"
+pubDate: "<today YYYY-MM-DD>"
+slug: "<kebab-case-slug>"
+tags: [<1–4 from the schema enum>]
 ---
 ```
 
-Then the markdown body (no H1).
+Tag enum (from `src/content.config.ts`): `behavior-change`, `breaking-bad-habits`, `habit-stacking`, `habit-tracking`, `identity`, `motivation`, `routines`, `book-summary`.
 
-After saving, remind me to create the hero image at `public/og/{{SLUG}}.png` (1200×630 PNG). Until that file exists, `og:image` and the JSON-LD `image` field will be omitted from the rendered post.
+## 5. Save, verify, report
+
+- Save at `src/content/blog/<slug>.md`.
+- Run `npm run build` to confirm Zod validates the frontmatter and the post compiles.
+- Report back: chosen topic + reason, final word count, internal links used, books from the affiliate file referenced (if any).
+- Remind the user to create the hero image at `public/og/<slug>.png` (1200×630). Until that file exists, `og:image` and JSON-LD `image` stay omitted.
