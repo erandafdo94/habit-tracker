@@ -5,6 +5,11 @@ pubDate: "2025-03-25"
 updatedDate: "2026-05-15"
 slug: "how-long-to-form-a-habit"
 tags: ["behavior-change"]
+heroImage:
+  src: /og/how-long-to-form-a-habit.png
+  alt: "How Long Does It Really Take to Form a Habit?"
+  width: 1200
+  height: 630
 ---
 
 The claim that habits take 21 days to form is everywhere, motivational posters, self-help books, corporate wellness programmes. It's also not true.

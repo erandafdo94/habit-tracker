@@ -5,6 +5,11 @@ pubDate: "2025-03-05"
 updatedDate: "2026-05-15"
 slug: "habit-tracking-methods-compared"
 tags: ["habit-tracking"]
+heroImage:
+  src: /og/habit-tracking-methods-compared.png
+  alt: "Habit Tracking Methods Compared: Paper vs App vs Spreadsheet"
+  width: 1200
+  height: 630
 ---
 
 There are three realistic ways to track habits day-to-day: paper (a journal, a printed grid, a sticker chart on the fridge), a dedicated app, or a spreadsheet/Notion-style document. Wearables, calendar apps, and bullet-journal hybrids are variations on these three. Each has real trade-offs. Here's an honest comparison.

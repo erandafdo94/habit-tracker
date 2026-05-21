@@ -5,6 +5,11 @@ pubDate: "2026-04-08"
 updatedDate: "2026-05-15"
 slug: "identity-based-habits"
 tags: ["identity", "behavior-change"]
+heroImage:
+  src: /og/identity-based-habits.png
+  alt: "Identity-Based Habits: Why 'Who You Want to Become' Beats Goals"
+  width: 1200
+  height: 630
 ---
 
 Here's why most New Year's resolutions fall apart by February. They're built around outcomes, "I want to lose 10kg," "I want to read 20 books," "I want to run a marathon." The moment you hit the number, or fall short of it, the habit has no reason to keep running. The motivational fuel was the outcome, and the outcome has been resolved.
