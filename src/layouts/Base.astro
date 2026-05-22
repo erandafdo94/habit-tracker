@@ -36,6 +36,7 @@ const canonical = `https://atomichabittracker.com${slug ? `/blog/${slug}/` : Ast
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="atomic" href="/rss.xml" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={pageType} />
