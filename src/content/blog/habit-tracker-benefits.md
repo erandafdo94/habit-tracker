@@ -76,7 +76,7 @@ Attaching tracking to an existing anchor removes the question of when to do it. 
 
 ### Keep it visible
 
-A tracking system you have to open an app to see is less effective than one visible in your environment. A printed grid on your desk, a whiteboard in the kitchen, a widget on your phone's home screen — all beat a buried app.
+A tracking system you have to open an app to see is less effective than one visible in your environment. A <a href="https://amzn.to/4dTTOWt" rel="sponsored nofollow noopener" target="_blank">printed habit tracker journal</a>, a whiteboard in the kitchen, a widget on your phone's home screen — all beat a buried app.
 
 The visibility principle is backed by research on implementation intentions and environmental design. Cues that appear in the natural flow of your day are more effective triggers than cues you have to seek out.
 

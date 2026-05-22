@@ -27,7 +27,7 @@ Behavioural scientists call it the "what-the-hell effect." Dieters who ate one b
 
 This pattern is well-documented in the self-control literature and it applies directly to habit streaks. The moment you decide the streak is what matters — rather than the behaviour — you've created a binary outcome. Streak intact: success. Streak broken: failure. Binary thinking produces binary behaviour.
 
-The antidote is not motivation. Motivation is unreliable and, as James Clear argues throughout <a href="https://amzn.to/42ZplQx" rel="sponsored nofollow noopener" target="_blank">*Atomic Habits*</a>, the wrong lever entirely. The antidote is a pre-committed rule: never miss twice.
+The antidote is not motivation. Motivation is unreliable and, as James Clear argues throughout <a href="https://amzn.to/4tO7pTQ" rel="sponsored nofollow noopener" target="_blank">*Atomic Habits*</a>, the wrong lever entirely. The antidote is a pre-committed rule: never miss twice.
 
 ## Never Miss Twice
 

@@ -14,7 +14,7 @@ heroImage:
 
 Most habit advice treats every habit like a separate project. Install flossing here. Install meditation there. Install journaling over there. Each one a discrete battle.
 
-That model is wrong. Some habits do far more than their own weight — they pull other habits with them. Charles Duhigg called these **keystone habits** in *The Power of Habit*. Get one right and a chain reaction follows.
+That model is wrong. Some habits do far more than their own weight — they pull other habits with them. Charles Duhigg called these **keystone habits** in [*The Power of Habit*](https://amzn.to/4urvCAw). Get one right and a chain reaction follows.
 
 This is the single highest-leverage idea in behaviour change. Most people ignore it because it sounds soft. It isn't.
 
@@ -26,7 +26,7 @@ Classic examples:
 
 - **Exercise.** People who start exercising tend to eat better, sleep earlier, drink less, and procrastinate less. Nobody decides to change those things. They just follow.
 - **Making your bed.** Sounds trivial. Isn't. It's a small win first thing in the morning that triggers a sequence of other small wins.
-- **Weekly planning.** Thirty minutes on a Sunday reshapes what the next five days look like, including which other habits you'll have the energy to run.
+- **Weekly planning.** Thirty minutes on a Sunday reshapes what the next five days look like, including which other habits you'll have the energy to run. A <a href="https://amzn.to/3PvjqQf" rel="sponsored nofollow noopener" target="_blank">structured weekly planner</a> makes this easier to maintain consistently.
 
 The common thread: keystone habits generate either **small wins** (which compound into belief that change is possible) or **structural side effects** (more energy, cleaner environment, clearer priorities) that make other habits cheaper to run.
 
@@ -74,7 +74,7 @@ The reason most habit overhauls fail is that people install six habits simultane
 
 A keystone approach does the opposite. Install one thing. Let it ripple. Add the next habit only when the first is running on autopilot.
 
-This isn't just folk wisdom. BJ Fogg's research at Stanford's Behaviour Design Lab consistently shows that habit adoption succeeds at far higher rates when people start with a single "anchor" behaviour and expand gradually. Fogg calls this "Tiny Habits" — the principle that small, well-placed changes produce outsized results because they don't deplete motivational resources.
+This isn't just folk wisdom. BJ Fogg's research at Stanford's Behaviour Design Lab consistently shows that habit adoption succeeds at far higher rates when people start with a single "anchor" behaviour and expand gradually. Fogg calls this [*Tiny Habits*](https://amzn.to/43o1OJe) — the principle that small, well-placed changes produce outsized results because they don't deplete motivational resources.
 
 [Habit stacking](/blog/habit-stacking-guide) is one of the most reliable ways to build on a keystone once it's running. Once exercise is automatic, stacking a five-minute meditation on its tail is far easier than introducing that meditation cold.
 

@@ -149,7 +149,7 @@ The laws aren't magic. They just name the four levers that actually move behavio
 <div class="book-cta">
   <span class="book-cta-title">The book these laws come from</span>
   <span class="book-cta-book">Atomic Habits by James Clear</span>
-  <a class="amazon-btn" href="https://amzn.to/42ZplQx" rel="sponsored nofollow noopener" target="_blank">Buy on Amazon</a>
+  <a class="amazon-btn" href="https://amzn.to/4tO7pTQ" rel="sponsored nofollow noopener" target="_blank">Buy on Amazon</a>
   <p class="amazon-disclosure">Affiliate link. I earn a small commission at no cost to you.</p>
 </div>
 

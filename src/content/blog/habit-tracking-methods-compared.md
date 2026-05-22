@@ -46,7 +46,7 @@ The rest of the post unpacks each row.
 - Doesn't travel well.
 - Hard to track more than around five habits before the page becomes noise.
 
-**Best for:** People who already use a planner or journal. If the notebook is already open every morning, adding a habit grid takes 30 seconds. Also strong for visible-cue people, the row of empty boxes on the fridge is itself a cue. ([Why a visible cue matters: the first law.](/blog/4-laws-of-behavior-change))
+**Best for:** People who already use a planner or journal — if you're not already keeping one, a <a href="https://amzn.to/4dTTOWt" rel="sponsored nofollow noopener" target="_blank">dedicated habit tracker journal</a> gives you the grid pre-built. If the notebook is already open every morning, adding a habit grid takes 30 seconds. Also strong for visible-cue people, the row of empty boxes on the fridge is itself a cue. ([Why a visible cue matters: the first law.](/blog/4-laws-of-behavior-change))
 
 A specific paper variant worth mentioning: the **Seinfeld calendar**. Apocryphally attributed to Jerry Seinfeld's advice on writing, the method is a wall calendar where every day you do the habit you draw a big X. The visual chain becomes a psychological anchor, "don't break the chain." It's a paper system that exploits completion-bias more effectively than most apps.
 

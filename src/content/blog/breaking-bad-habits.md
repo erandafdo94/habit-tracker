@@ -26,7 +26,7 @@ Every habit runs on a three-part loop:
 
 Bad habits persist because they deliver real rewards. Scrolling delivers novelty and connection. Snacking delivers a mood lift. Smoking delivers a break from work and a moment of stillness.
 
-You can't just cut the reward. The brain will fill the gap with the original behaviour. What you can do is hijack the loop. (The loop is originally from Charles Duhigg — [how it compares to Clear's framework here.](/blog/atomic-habits-vs-power-of-habit))
+You can't just cut the reward. The brain will fill the gap with the original behaviour. What you can do is hijack the loop. (The loop is originally from Charles Duhigg's [*The Power of Habit*](https://amzn.to/4urvCAw) — [how it compares to Clear's framework here.](/blog/atomic-habits-vs-power-of-habit))
 
 ## Why willpower alone fails
 

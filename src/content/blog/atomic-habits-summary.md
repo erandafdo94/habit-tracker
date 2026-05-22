@@ -12,7 +12,7 @@ heroImage:
   height: 630
 ---
 
-[*Atomic Habits*](https://amzn.to/42ZplQx) is 300 pages. The useful ideas fit on an index card. Most of the book is stories and repetition to make those ideas sticky — which is fine, but if you've already decided to apply the system, you don't need the padding.
+[*Atomic Habits*](https://amzn.to/4tO7pTQ) is 300 pages. The useful ideas fit on an index card. Most of the book is stories and repetition to make those ideas sticky — which is fine, but if you've already decided to apply the system, you don't need the padding.
 
 Here are the five ideas actually worth keeping, in the order they matter.
 
@@ -116,7 +116,7 @@ If that's where you are, the fastest path is a pre-built system: tracker, weekly
 <div class="book-cta">
   <span class="book-cta-title">Get the book</span>
   <span class="book-cta-book">Atomic Habits by James Clear</span>
-  <a class="amazon-btn" href="https://amzn.to/42ZplQx" rel="sponsored nofollow noopener" target="_blank">Buy on Amazon</a>
+  <a class="amazon-btn" href="https://amzn.to/4tO7pTQ" rel="sponsored nofollow noopener" target="_blank">Buy on Amazon</a>
   <p class="amazon-disclosure">Affiliate link. I earn a small commission at no cost to you.</p>
 </div>
 

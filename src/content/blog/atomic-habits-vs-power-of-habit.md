@@ -12,7 +12,7 @@ heroImage:
   height: 630
 ---
 
-[*Atomic Habits*](https://amzn.to/42ZplQx) by James Clear and *The Power of Habit* by Charles Duhigg are the two books most people hit first when they decide to get serious about behaviour change. They're often lumped together. They shouldn't be.
+[*Atomic Habits*](https://amzn.to/4tO7pTQ) by James Clear and [*The Power of Habit*](https://amzn.to/4urvCAw) by Charles Duhigg are the two books most people hit first when they decide to get serious about behaviour change. They're often lumped together. They shouldn't be.
 
 They're doing different jobs. If you pick the wrong one for where you are, you'll either get bored or frustrated. Here's the honest side-by-side.
 
@@ -120,7 +120,7 @@ Read one. Pick one habit. Run it through the four laws. That beats finishing bot
 <div class="book-cta">
   <span class="book-cta-title">Get the book</span>
   <span class="book-cta-book">Atomic Habits by James Clear</span>
-  <a class="amazon-btn" href="https://amzn.to/42ZplQx" rel="sponsored nofollow noopener" target="_blank">Buy on Amazon</a>
+  <a class="amazon-btn" href="https://amzn.to/4tO7pTQ" rel="sponsored nofollow noopener" target="_blank">Buy on Amazon</a>
   <p class="amazon-disclosure">Affiliate link. I earn a small commission at no cost to you.</p>
 </div>
 

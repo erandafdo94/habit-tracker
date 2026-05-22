@@ -49,7 +49,7 @@ Once showing up is automatic, you can scale. But you can't scale what you never 
 
 This is the two-minute rule, one of the four tactical levers in James Clear's system — the idea being that no habit should take longer than two minutes in its starter form. ([Full breakdown of the four laws here.](/blog/4-laws-of-behavior-change))
 
-The psychology behind it is straightforward. BJ Fogg at Stanford's Behaviour Design Lab calls this "Tiny Habits" — the insight that motivation is not a prerequisite for starting. Starting generates motivation, not the other way around. A habit small enough to require no motivation removes the chicken-and-egg problem entirely.
+The psychology behind it is straightforward. BJ Fogg at Stanford's Behaviour Design Lab calls this [*Tiny Habits*](https://amzn.to/43o1OJe) — the insight that motivation is not a prerequisite for starting. Starting generates motivation, not the other way around. A habit small enough to require no motivation removes the chicken-and-egg problem entirely.
 
 There's also an identity benefit. Every time you execute the habit — even at a trivially small scale — you are casting a vote for the identity "I am someone who does this." Twenty small completions build a stronger identity signal than two ambitious completions followed by guilt and abandonment. ([More on identity-based habits here.](/blog/identity-based-habits))
 
