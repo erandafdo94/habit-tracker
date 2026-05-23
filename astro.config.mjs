@@ -8,7 +8,7 @@ const isAffiliate = (href = '') => href.includes('amzn.to');
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://atomichabittracker.com',
+  site: 'https://atomichabitstracker.com',
   integrations: [sitemap()],
   markdown: {
     rehypePlugins: [

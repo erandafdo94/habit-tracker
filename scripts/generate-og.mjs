@@ -116,7 +116,7 @@ function card(title) {
               },
               {
                 type: "div",
-                props: { style: { fontSize: "26px", color: FG_MUTED }, children: "atomichabittracker.com" },
+                props: { style: { fontSize: "26px", color: FG_MUTED }, children: "atomichabitstracker.com" },
               },
             ],
           },

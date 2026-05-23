@@ -14,8 +14,8 @@ const { post, allPosts, readingMinutes } = Astro.props;
 const { title, description, pubDate, updatedDate, slug, tags, heroImage } = post.data;
 const primaryTag = tags[0];
 
-const url = `https://atomichabittracker.com/blog/${slug}/`;
-const heroImageUrl = heroImage ? `https://atomichabittracker.com${heroImage.src}` : undefined;
+const url = `https://atomichabitstracker.com/blog/${slug}/`;
+const heroImageUrl = heroImage ? `https://atomichabitstracker.com${heroImage.src}` : undefined;
 
 const ogImage = heroImage && heroImageUrl
   ? { url: heroImageUrl, alt: heroImage.alt, width: heroImage.width, height: heroImage.height }
@@ -38,7 +38,7 @@ const articleLd = {
       height: heroImage.height,
     },
   }),
-  author: { "@type": "Organization", name: "atomic", url: "https://atomichabittracker.com/" },
+  author: { "@type": "Organization", name: "atomic", url: "https://atomichabitstracker.com/" },
   publisher: { "@type": "Organization", name: "atomic" },
   keywords: tags.join(", "),
 };
@@ -47,8 +47,8 @@ const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://atomichabittracker.com/" },
-    { "@type": "ListItem", position: 2, name: "Articles", item: "https://atomichabittracker.com/blog/" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://atomichabitstracker.com/" },
+    { "@type": "ListItem", position: 2, name: "Articles", item: "https://atomichabitstracker.com/blog/" },
     { "@type": "ListItem", position: 3, name: title, item: url },
   ],
 };

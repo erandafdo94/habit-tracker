@@ -105,7 +105,7 @@ export const GET: APIRoute = async ({ params }) => {
                       fontSize: 18,
                       color: "#6b7280",
                     },
-                    children: "atomichabittracker.com",
+                    children: "atomichabitstracker.com",
                   },
                 },
               ],

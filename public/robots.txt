@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://atomichabittracker.com/sitemap-index.xml
+Sitemap: https://atomichabitstracker.com/sitemap-index.xml

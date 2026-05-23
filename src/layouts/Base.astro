@@ -15,7 +15,7 @@ export interface Props {
 }
 
 const { title, description, slug, pageType = "website", image, jsonLd } = Astro.props;
-const canonical = `https://atomichabittracker.com${slug ? `/blog/${slug}/` : Astro.url.pathname}`;
+const canonical = `https://atomichabitstracker.com${slug ? `/blog/${slug}/` : Astro.url.pathname}`;
 ---
 <!doctype html>
 <html lang="en">
