@@ -18,11 +18,10 @@ Source of truth for affiliate links used in blog posts. Edit this file as you co
 - **Tiny Habits** by BJ Fogg — https://amzn.to/43o1OJe
 - **The 7 Habits of Highly Effective People** by Stephen Covey — https://amzn.to/49fRB56
 - **The 7 Habits of Highly Effective Teens** by Sean Covey — https://amzn.to/4upZeye
-- **Hooked** by Nir Eyal — TBD
 
 ## Items
 
-- **Habit Tracker Journal** — https://amzn.to/4dTTOWt *(use when discussing paper/journal-based tracking methods)*
-- **Weekly Planner** — https://amzn.to/3PvjqQf *(use when discussing weekly reviews, planning habits, or morning routines)*
+- **Habit Tracker Journal** — https://amzn.to/4dTTOWt _(use when discussing paper/journal-based tracking methods)_
+- **Weekly Planner** — https://amzn.to/3PvjqQf _(use when discussing weekly reviews, planning habits, or morning routines)_
 
 Add, remove, or reorder entries freely. Format per line: `- **Title** by Author — URL` (or `TBD`).
