@@ -1,0 +1,216 @@
+---
+// Email capture form wired to Kit (formerly ConvertKit).
+//
+// Setup: create a form in Kit (Grow → Landing Pages & Forms → New),
+// then copy the numeric form ID from its embed/action URL —
+// https://app.kit.com/forms/<FORM_ID>/subscriptions — and put it in a
+// project .env file as:   PUBLIC_KIT_FORM_ID=1234567
+// (Anything prefixed PUBLIC_ is exposed to the client by Astro, which is
+// correct here — a Kit form ID is public, not a secret.)
+//
+// Works without JavaScript: the native <form> POSTs straight to Kit and
+// Kit shows its own confirmation/redirect. With JS, we intercept the
+// submit and show an inline success message so the reader never leaves.
+
+interface Props {
+  heading?: string;
+  copy?: string;
+  cta?: string;
+}
+
+const {
+  heading = "Build habits that actually stick",
+  copy = "Get the occasional email with practical, no-fluff tactics for building good habits and breaking bad ones. No spam, unsubscribe anytime.",
+  cta = "Subscribe",
+} = Astro.props;
+
+const formId = import.meta.env.PUBLIC_KIT_FORM_ID ?? "REPLACE_WITH_KIT_FORM_ID";
+const action = `https://app.kit.com/forms/${formId}/subscriptions`;
+---
+
+<aside class="email-signup" aria-labelledby="email-signup-heading" data-pagefind-ignore>
+  <div class="email-signup__inner">
+    <h2 id="email-signup-heading" class="email-signup__heading">{heading}</h2>
+    <p class="email-signup__copy">{copy}</p>
+
+    <form
+      class="email-signup__form"
+      action={action}
+      method="post"
+      data-signup-form
+    >
+      <label class="email-signup__label" for="email-signup-input">Email address</label>
+      <div class="email-signup__row">
+        <input
+          id="email-signup-input"
+          class="email-signup__input"
+          type="email"
+          name="email_address"
+          autocomplete="email"
+          required
+          placeholder="you@example.com"
+        />
+        <button type="submit" class="email-signup__button">{cta}</button>
+      </div>
+
+      {/* Honeypot — bots fill it, humans never see it. */}
+      <div class="email-signup__hp" aria-hidden="true">
+        <label for="email-signup-website">Leave this field empty</label>
+        <input id="email-signup-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <p class="email-signup__status" role="status" aria-live="polite" data-signup-status></p>
+    </form>
+  </div>
+</aside>
+
+<style>
+  .email-signup {
+    margin: var(--space-8) 0 var(--space-6);
+    padding: var(--space-7) var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-3);
+    background: var(--bg-elev);
+  }
+  .email-signup__inner {
+    max-width: 52ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .email-signup__heading {
+    font-family: var(--font-serif);
+    font-size: var(--step-2);
+    font-weight: 500;
+    line-height: var(--leading-tight);
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    margin-bottom: var(--space-3);
+  }
+  .email-signup__copy {
+    font-size: var(--step--1);
+    line-height: 1.6;
+    color: var(--fg-muted);
+    margin-bottom: var(--space-5);
+  }
+  .email-signup__label {
+    /* Visible to screen readers, hidden visually — the placeholder labels sighted users. */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .email-signup__row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  @media (min-width: 480px) {
+    .email-signup__row {
+      flex-direction: row;
+    }
+  }
+  .email-signup__input {
+    flex: 1;
+    min-width: 0;
+    padding: var(--space-3) var(--space-4);
+    font: inherit;
+    font-size: var(--step-0);
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-2);
+    transition: border-color var(--duration-fast) var(--ease-out);
+  }
+  .email-signup__input:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 1px;
+    border-color: var(--focus);
+  }
+  .email-signup__button {
+    flex-shrink: 0;
+    padding: var(--space-3) var(--space-5);
+    font: inherit;
+    font-size: var(--step-0);
+    font-weight: 600;
+    color: white;
+    background: var(--accent);
+    border: 1px solid transparent;
+    border-radius: var(--radius-2);
+    cursor: pointer;
+    transition: background var(--duration-fast) var(--ease-out);
+  }
+  .email-signup__button:hover { background: var(--accent-hover); }
+  .email-signup__button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .email-signup__button[disabled] {
+    opacity: 0.6;
+    cursor: progress;
+  }
+  .email-signup__hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .email-signup__status {
+    min-height: 1.2em;
+    margin-top: var(--space-3);
+    font-size: var(--step--1);
+    line-height: 1.5;
+  }
+  .email-signup__status[data-state="success"] { color: var(--accent); }
+  .email-signup__status[data-state="error"] { color: hsl(0 65% 45%); }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>("[data-signup-form]").forEach((form) => {
+    const status = form.querySelector<HTMLElement>("[data-signup-status]");
+    const button = form.querySelector<HTMLButtonElement>("button[type=submit]");
+    const honeypot = form.querySelector<HTMLInputElement>('input[name="website"]');
+
+    const setStatus = (msg: string, state: "success" | "error") => {
+      if (!status) return;
+      status.textContent = msg;
+      status.dataset.state = state;
+    };
+
+    form.addEventListener("submit", async (event) => {
+      // Honeypot tripped — silently no-op so the bot thinks it worked.
+      if (honeypot?.value) {
+        event.preventDefault();
+        return;
+      }
+
+      event.preventDefault();
+      if (button) button.disabled = true;
+      setStatus("Subscribing…", "success");
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+
+        if (res.ok) {
+          form.reset();
+          setStatus("Check your inbox to confirm your subscription. 🎉", "success");
+        } else {
+          setStatus("Something went wrong. Please try again.", "error");
+          if (button) button.disabled = false;
+        }
+      } catch {
+        setStatus("Network error. Please try again.", "error");
+        if (button) button.disabled = false;
+      }
+    });
+  });
+</script>

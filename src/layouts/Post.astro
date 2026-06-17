@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import Base from "./Base.astro";
 import PostMeta from "../components/PostMeta.astro";
 import RelatedPosts from "../components/RelatedPosts.astro";
+import EmailSignup from "../components/EmailSignup.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -84,6 +85,8 @@ const breadcrumbLd = {
       <div class="prose post-body">
         <slot />
       </div>
+
+      <EmailSignup />
     </div>
   </article>
 
