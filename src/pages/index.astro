@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import PostCard from "../components/PostCard.astro";
+import EmailSignup from "../components/EmailSignup.astro";
 import { getCollection } from "astro:content";
 
 const all = (await getCollection("blog")).sort(
@@ -62,6 +63,12 @@ const jsonLd = {
       </div>
     </div>
   </section>
+
+  <section class="signup-section">
+    <div class="container container--narrow">
+      <EmailSignup />
+    </div>
+  </section>
 </Base>
 
 <style>
@@ -109,7 +116,10 @@ const jsonLd = {
     padding: var(--space-5) 0 var(--space-7);
   }
   .recent {
-    padding: var(--space-6) 0 var(--space-9);
+    padding: var(--space-6) 0 var(--space-5);
+  }
+  .signup-section {
+    padding-bottom: var(--space-8);
   }
   .section-eyebrow {
     font-family: var(--font-sans);

@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import EmailSignup from "../components/EmailSignup.astro";
 ---
 <Base
   title="About, atomic"
@@ -46,6 +47,11 @@ import Base from "../layouts/Base.astro";
         or <a href="/tags/">browse by topic</a>.
       </p>
     </div>
+
+    <EmailSignup
+      heading="Get the good stuff by email"
+      copy="No-fluff habit tactics, sourced and edited to the same standard as everything here. Occasional, never spammy. Unsubscribe anytime."
+    />
   </article>
 
   <style>
