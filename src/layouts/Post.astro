@@ -4,6 +4,7 @@ import Base from "./Base.astro";
 import PostMeta from "../components/PostMeta.astro";
 import RelatedPosts from "../components/RelatedPosts.astro";
 import EmailSignup from "../components/EmailSignup.astro";
+import { extractFaq } from "../lib/faq.ts";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -40,9 +41,32 @@ const articleLd = {
     },
   }),
   author: { "@type": "Organization", name: "atomic", url: "https://atomichabitstracker.com/" },
-  publisher: { "@type": "Organization", name: "atomic" },
+  publisher: {
+    "@type": "Organization",
+    name: "atomic",
+    url: "https://atomichabitstracker.com/",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://atomichabitstracker.com/logo.png",
+      width: 512,
+      height: 512,
+    },
+  },
   keywords: tags.join(", "),
 };
+
+const faqItems = extractFaq(post.body ?? "");
+const faqLd = faqItems.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+    }
+  : null;
 
 const breadcrumbLd = {
   "@context": "https://schema.org",
@@ -60,7 +84,7 @@ const breadcrumbLd = {
   slug={slug}
   pageType="article"
   image={ogImage}
-  jsonLd={[articleLd, breadcrumbLd]}
+  jsonLd={faqLd ? [articleLd, breadcrumbLd, faqLd] : [articleLd, breadcrumbLd]}
 >
   <article class="post" data-pagefind-body>
     <header class="post-header container container--narrow">

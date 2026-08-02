@@ -4,6 +4,11 @@ description: "A research-grounded guide to evening routine habits — what to in
 pubDate: "2026-07-25"
 slug: "evening-routine-habits"
 tags: ["routines", "habit-stacking"]
+heroImage:
+  src: /og/evening-routine-habits.png
+  alt: "Evening Routine Habits: Build a Wind-Down That Works"
+  width: 1200
+  height: 630
 ---
 
 Morning routines get all the attention. But the quality of your morning is mostly decided the night before — by whether you slept, whether tomorrow is already planned, and whether you went to bed as a person in control of your evening or a person the evening happened to.
