@@ -4,6 +4,7 @@ Source of truth for affiliate links used in blog posts. Edit this file as you co
 
 ## Rules for Claude
 
+- **Affiliate links are optional.** Most posts don't need one — add a link only when a book or product is genuinely central to the topic, never as filler. A post with no affiliate link is a normal, good outcome.
 - Only use entries with a real URL. **Skip any entry marked `TBD`** — do not link to a placeholder.
 - Reference a book inline (`[*Book Title*](URL)`) only where it's genuinely relevant to the post topic, not as filler.
 - Include at most one bottom `book-cta` block per post, with the single most relevant book. Match the existing pattern in `src/content/blog/atomic-habits-summary.md`.
